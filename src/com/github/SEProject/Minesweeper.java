@@ -11,14 +11,9 @@ import java.awt.event.MouseEvent;
 
 
 public class Minesweeper extends JPanel{
-    private JButton mines[][];
-    private static int rows;
-    private static int columns;
 
-public static void main(String args[]){
-        rows = 5;
-        columns = 5;
-        Window w = new Window();
+public static void main(String args[]){;
+        Window w = new Window(10,10,10);
         //Map gameMap = new Map(rows, columns, 10);
         
     }

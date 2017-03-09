@@ -8,9 +8,11 @@ package com.github.SEProject;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import java.awt.Container;
+
 public class Window extends JFrame {
-    public Window(){
-    	GamePanel panel = new GamePanel(10, 10, 10);
+    
+	public Window(int x, int y, int numBombs){
+    	GamePanel panel = new GamePanel(x, y, numBombs);
         Container container = this.getContentPane();
         container.add(panel);
         this.setSize(600, 600);

@@ -22,26 +22,84 @@ public class Map {
 		this.numBombs = numBombs;
 		generator = new Generator();
 		squares = generator.generate(width, height, numBombs);
+		setAdjBombVals();
 	}
 	
 	public Map(File mapFile) {
 		//width, height, and numbombs set in generator method
 		generator = new Generator();
 		squares = generator.generate(mapFile);
+		setAdjBombVals();
 	}
 	
 	public void setAdjBombVals() {
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
-				squares.get(new Coordinate(i,j)).setNumAdjBombs(
-						squares.get(new Coordinate(i+1,j)).isBomb() +
-						squares.get(new Coordinate(i-1,j)).isBomb() +
-						squares.get(new Coordinate(i,j+1)).isBomb() +
-						squares.get(new Coordinate(i,j-1)).isBomb() +
-						squares.get(new Coordinate(i+1,j+1)).isBomb() +
-						squares.get(new Coordinate(i+1,j-1)).isBomb() +
-						squares.get(new Coordinate(i-1,j+1)).isBomb() +
-						squares.get(new Coordinate(i-1,j-1)).isBomb());
+				if (i == 0) {
+					if (j == 0) {
+						squares.get(new Coordinate(i,j)).setNumAdjBombs(
+								squares.get(new Coordinate(i+1,j)).isBomb() +
+								squares.get(new Coordinate(i,j+1)).isBomb() +
+								squares.get(new Coordinate(i+1,j+1)).isBomb());
+					} else if (j == height - 1) {
+						squares.get(new Coordinate(i,j)).setNumAdjBombs(
+								squares.get(new Coordinate(i+1,j)).isBomb() +
+								squares.get(new Coordinate(i,j-1)).isBomb() +
+								squares.get(new Coordinate(i+1,j-1)).isBomb());
+					} else {
+						squares.get(new Coordinate(i,j)).setNumAdjBombs(
+								squares.get(new Coordinate(i+1,j)).isBomb() +
+								squares.get(new Coordinate(i,j+1)).isBomb() +
+								squares.get(new Coordinate(i,j-1)).isBomb() +
+								squares.get(new Coordinate(i+1,j+1)).isBomb() +
+								squares.get(new Coordinate(i+1,j-1)).isBomb());
+					}
+				} else if (i == width - 1) {
+					if (j == 0) {
+						squares.get(new Coordinate(i,j)).setNumAdjBombs(
+								squares.get(new Coordinate(i-1,j)).isBomb() +
+								squares.get(new Coordinate(i,j+1)).isBomb() +
+								squares.get(new Coordinate(i-1,j+1)).isBomb());
+					} else if (j == width - 1) {
+						squares.get(new Coordinate(i,j)).setNumAdjBombs(
+								squares.get(new Coordinate(i-1,j)).isBomb() +
+								squares.get(new Coordinate(i,j-1)).isBomb() +
+								squares.get(new Coordinate(i-1,j-1)).isBomb());
+					} else {
+						squares.get(new Coordinate(i,j)).setNumAdjBombs(
+								squares.get(new Coordinate(i-1,j)).isBomb() +
+								squares.get(new Coordinate(i,j+1)).isBomb() +
+								squares.get(new Coordinate(i,j-1)).isBomb() +
+								squares.get(new Coordinate(i-1,j+1)).isBomb() +
+								squares.get(new Coordinate(i-1,j-1)).isBomb());
+					}
+				} else {
+					if (j == 0) {
+						squares.get(new Coordinate(i,j)).setNumAdjBombs(
+								squares.get(new Coordinate(i+1,j)).isBomb() +
+								squares.get(new Coordinate(i-1,j)).isBomb() +
+								squares.get(new Coordinate(i,j+1)).isBomb() +
+								squares.get(new Coordinate(i+1,j+1)).isBomb() +
+								squares.get(new Coordinate(i-1,j+1)).isBomb());
+					} else if (j == width - 1) {
+						squares.get(new Coordinate(i,j)).setNumAdjBombs(
+								squares.get(new Coordinate(i+1,j)).isBomb() +
+								squares.get(new Coordinate(i-1,j)).isBomb() +
+								squares.get(new Coordinate(i,j-1)).isBomb() +
+								squares.get(new Coordinate(i+1,j-1)).isBomb() +
+								squares.get(new Coordinate(i-1,j-1)).isBomb());
+					} else {
+						squares.get(new Coordinate(i,j)).setNumAdjBombs(
+								squares.get(new Coordinate(i+1,j)).isBomb() +
+								squares.get(new Coordinate(i-1,j)).isBomb() +
+								squares.get(new Coordinate(i,j+1)).isBomb() +
+								squares.get(new Coordinate(i,j-1)).isBomb() +
+								squares.get(new Coordinate(i+1,j+1)).isBomb() +
+								squares.get(new Coordinate(i+1,j-1)).isBomb() +
+								squares.get(new Coordinate(i-1,j+1)).isBomb() +
+								squares.get(new Coordinate(i-1,j-1)).isBomb());
+					}
+				}
 			}
 		}
 	}

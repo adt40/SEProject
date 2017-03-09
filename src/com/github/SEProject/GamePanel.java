@@ -18,6 +18,7 @@ public class GamePanel extends JPanel {
 	
     private JButton start;
     private int mouseX, mouseY;
+    private int mapX, mapY;
     private JButton buttons[][];
     private Map map;
     
@@ -26,14 +27,19 @@ public class GamePanel extends JPanel {
     public GamePanel(int x, int y, int bombs){
     	
         this.setLayout(null);
+        
+        
+        /* Leaving this out for now
         start = new JButton();
         start.setText("Start Game");
         start.setBounds(125, 235, 250, 30);
         start.addActionListener(new StartButtonListener());
+        */
         
-        //JPanel buttonPanel = new JPanel();
         this.setLayout(new GridLayout(x, y, 0, 0));
         
+        mapX = x;
+        mapY = y;
         buttons = new JButton[x][y];
         map = new Map(x, y, bombs);
         
@@ -74,17 +80,59 @@ public class GamePanel extends JPanel {
                     if (buttons[i][j].equals(source)) {
                         Coordinate c = new Coordinate(i,j);
                         Square square = map.getSquare(c);
-                        
+                        if (square.isBomb() == 1) {
+                        	buttons[i][j].setText("B");
+                        	
+                        } else {
+                        	int numAdj = square.getNumAdjBombs();
+                        	buttons[i][j].setText(numAdj + "");
+                        	if (numAdj == 0) {
+                        		//revealZeroes(i,j);
+                        	}
+                        }
                     }
                 }
             }
         }
     }
     
+    //stack overflows right now because it hits already revealed zeros, need to add check for this
+    public void revealZeroes(int i, int j) {
+    	if (i != mapX - 1) {
+    		Square squareRight = map.getSquare(new Coordinate(i+1,j));
+    		if (squareRight.getNumAdjBombs() == 0) {
+    			buttons[i+1][j].setText("0");
+    			revealZeroes(i+1, j);
+    		}
+    	}
+    	if (i != 0) {
+    		Square squareLeft = map.getSquare(new Coordinate(i-1,j));
+    		if (squareLeft.getNumAdjBombs() == 0) {
+    			buttons[i-1][j].setText("0");
+    			revealZeroes(i-1, j);
+    		}
+    	}
+    	if (j != mapY - 1) {
+    		Square squareDown = map.getSquare(new Coordinate(i,j+1));
+    		if (squareDown.getNumAdjBombs() == 0) {
+    			buttons[i][j+1].setText("0");
+    			revealZeroes(i, j+1);
+    		}
+    	}
+    	if (j != 0) {
+    		Square squareUp = map.getSquare(new Coordinate(i,j-1));
+    		if (squareUp.getNumAdjBombs() == 0) {
+    			buttons[i][j-1].setText("0");
+    			revealZeroes(i, j-1);
+    		}
+    	}
+    	
+    }
     
     
     
     
+    //what is this
     /*
     private class Clicker implements MouseListener{
         boolean pressed = false;
