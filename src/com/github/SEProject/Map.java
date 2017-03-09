@@ -71,12 +71,13 @@ public class Map {
 		this.numBombs = numBombs;
 	}
 
-	public HashMap<Coordinate, Square> getSquares() {
-		return squares;
+	public Square getSquare(Coordinate c) {
+		return squares.get(c);
 	}
 
-	public void setSquares(HashMap<Coordinate, Square> squares) {
-		this.squares = squares;
+	public void addSquare(Coordinate c, Square s) {
+		//Might not ever be used, check if can be deleted later
+		squares.put(c, s);
 	}
 	
 	
