@@ -10,7 +10,7 @@ import javax.swing.WindowConstants;
 import java.awt.Container;
 public class Window extends JFrame {
     public Window(){
-        GamePanel panel = new GamePanel();
+        GamePanel panel = new GamePanel(10, 10, 10);
         Container container = this.getContentPane();
         container.add(panel);
         this.setSize(600, 600);

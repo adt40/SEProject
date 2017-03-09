@@ -1,4 +1,4 @@
-package com.github.SEProject;
+package minesweeper;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

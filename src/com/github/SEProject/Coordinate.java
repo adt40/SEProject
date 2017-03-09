@@ -1,4 +1,4 @@
-package com.github.SEProject;
+package minesweeper;
 
 public class Coordinate {
 
