@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package minesweeper;
+package com.github.SEProject;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -14,44 +15,77 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
 public class GamePanel extends JPanel {
-    JButton start;
-    int mouseX, mouseY;
-    static JButton stuff[][];
-    static Map newGame;
+	
+    private JButton start;
+    private int mouseX, mouseY;
+    private JButton buttons[][];
+    private Map map;
+    
+    
+    
     public GamePanel(int x, int y, int bombs){
+    	
         this.setLayout(null);
         start = new JButton();
         start.setText("Start Game");
-	start.setBounds(125, 235, 250, 30);
-	start.addActionListener(new MapStuff());
-        JButton[][] stuff = new JButton[x][y];
-	Map newGame = new Map(x, y, bombs);
-	for (int i = 0; i < stuff.length; i++) {
-                for (int j = 0; j < stuff[i].length; j++) {
-                    stuff[i][j].addActionListener(new MapStuff());
-                    
-                }
-            }		
-	
-        this.add(start);
+        start.setBounds(125, 235, 250, 30);
+        start.addActionListener(new StartButtonListener());
+        
+        //JPanel buttonPanel = new JPanel();
+        this.setLayout(new GridLayout(x, y, 0, 0));
+        
+        buttons = new JButton[x][y];
+        map = new Map(x, y, bombs);
+        
+        for (int i = 0; i < buttons.length; i++) {
+        	for (int j = 0; j < buttons[i].length; j++) {
+        		buttons[i][j] = new JButton();
+        		buttons[i][j].addActionListener(new MapButtonListener());
+        		this.add(buttons[i][j]);
+            }
+        }		
+        
+        //this.add(start);
     }
-    private class MapStuff implements ActionListener{
+    
+    
+    
+    
+    
+    private class StartButtonListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// start game
+		}
+    	
+    }
+    
+    
+    
+    private class MapButtonListener implements ActionListener{
 
         @Override
-        public void actionPerformed(ActionEvent ae) {
-            JButton[][] mapSquare = new JButton[5][5];
-            JButton source = (JButton) ae.getSource();
-            for (int i = 0; i < stuff.length; i++) {
-                for (int j = 0; j < stuff[i].length; j++) {
-                    if (stuff[i][j].equals(source)) {
+        public void actionPerformed(ActionEvent e) {
+        	
+            JButton source = (JButton) e.getSource();
+            for (int i = 0; i < buttons.length; i++) {
+                for (int j = 0; j < buttons[i].length; j++) {
+                    if (buttons[i][j].equals(source)) {
                         Coordinate c = new Coordinate(i,j);
-                        Square square = newGame.getSquare(c);
+                        Square square = map.getSquare(c);
+                        
                     }
                 }
             }
         }
-        
     }
+    
+    
+    
+    
+    
+    /*
     private class Clicker implements MouseListener{
         boolean pressed = false;
         @Override
@@ -83,4 +117,5 @@ public class GamePanel extends JPanel {
         }
         
     }
+    */
 }

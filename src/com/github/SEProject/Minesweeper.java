@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package minesweeper;
+package com.github.SEProject;
 import java.awt.GridLayout;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -16,8 +16,8 @@ public class Minesweeper extends JPanel{
     private static int columns;
 
 public static void main(String args[]){
-        rows = 10;
-        columns = 10;
+        rows = 5;
+        columns = 5;
         Window w = new Window();
         //Map gameMap = new Map(rows, columns, 10);
         

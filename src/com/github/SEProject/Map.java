@@ -1,4 +1,4 @@
-package minesweeper;
+package com.github.SEProject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -102,6 +102,7 @@ public class Map {
 				Square s = squares.get(c);
 				if (s.isBomb() == 0) {
 					s.setBomb(1);
+					k++;
 				}
 			}
 			return squares;
