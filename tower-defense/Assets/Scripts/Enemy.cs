@@ -31,6 +31,6 @@ public class Enemy : MonoBehaviour {
 	
 	void turn () {
 		float angle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+		this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 	}
 }
