@@ -1,0 +1,9 @@
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\Minesweeper.exe.config
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\Minesweeper.exe
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\Minesweeper.pdb
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.csprojResolveAssemblyReference.cache
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.Properties.Resources.resources
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.csproj.GenerateResource.Cache
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.exe
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.pdb
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.Form1.resources
