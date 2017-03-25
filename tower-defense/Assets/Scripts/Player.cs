@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
 		movex = Input.GetAxis ("Horizontal");
 		movey = Input.GetAxis ("Vertical");
 		rigidbody2D.velocity = new Vector2 (movex * Speed, movey * Speed);
+        
 	}
 	
 	void turn () {
