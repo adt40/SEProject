@@ -26,6 +26,16 @@ namespace Minesweeper
             InitializeComponent();
         }
 
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form1_Load(sender, e);
+        }
+
+        private void menu1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             buttons = new Button[mapX, mapY];
