@@ -16,24 +16,33 @@ namespace Minesweeper
         private Map map { get; set; }
         private Button[,] buttons;
 
-        public Form1()
+        public Form1(int x, int y, int bombs)
         {
-            //Test values, grab real values from components on the window
-            mapX = 10;
-            mapY = 10;
-            numBombs = 15;
+            //Test values, grab real values some other way
+            mapX = x;
+            mapY = y;
+            numBombs = bombs;
 
             InitializeComponent();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Form1_Load(sender, e);
+            Form1 game = new Form1(mapX, mapY, numBombs);
+            game.Show();
+            this.Hide();
         }
 
         private void menu1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 menu = new Form2();
+            menu.Show();
+            this.Hide();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -50,7 +59,7 @@ namespace Minesweeper
                 for (int y = 0; y < buttons.GetLength(1); y++)
                 {
                     buttons[x, y] = new Button();
-                    buttons[x, y].Top = offset / 2 + x * buttonSize;
+                    buttons[x, y].Top = offset + x * buttonSize;
                     buttons[x, y].Left = offset + y * buttonSize;
                     buttons[x, y].Width = buttonSize;
                     buttons[x, y].Height = buttonSize;

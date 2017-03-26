@@ -32,7 +32,10 @@ namespace Minesweeper
         public void SetAdjBombVals()
         {
             //need better implementation of this, reference old java code for bad way
+
         }
+
+        
 
 
         private Dictionary<Coordinate, Square> Generate(int width, int height, int numBombs)
