@@ -10,23 +10,23 @@ using System.Windows.Forms;
 
 namespace Minesweeper
 {
-    public partial class Form2 : Form
+    public partial class MainForm : Form
     {
-        public Form2()
+        public MainForm()
         {
             InitializeComponent();
         }
 
         private void NewGameButton_Click(object sender, EventArgs e)
         {
-            Form4 settings = new Form4((Button)sender);
+            SettingsForm settings = new SettingsForm((Button)sender);
             settings.Show();
             this.Hide();
         }
 
         private void CustomMapEditorButton_Click(object sender, EventArgs e)
         {
-            Form4 settings = new Form4((Button)sender);
+            SettingsForm settings = new SettingsForm((Button)sender);
             settings.Show();
             this.Hide();
         }

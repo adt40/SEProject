@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Minesweeper
 {
@@ -28,16 +29,62 @@ namespace Minesweeper
             squares = Generate(filename);
             SetAdjBombVals();
         }
-        
+
         public void SetAdjBombVals()
         {
-            //need better implementation of this, reference old java code for bad way
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    int adj = 0;
+                    Coordinate c1 = new Coordinate(x + 1, y);
+                    Coordinate c2 = new Coordinate(x, y + 1);
+                    Coordinate c3 = new Coordinate(x - 1, y);
+                    Coordinate c4 = new Coordinate(x, y - 1);
+                    Coordinate c5 = new Coordinate(x + 1, y + 1);
+                    Coordinate c6 = new Coordinate(x - 1, y + 1);
+                    Coordinate c7 = new Coordinate(x + 1, y - 1);
+                    Coordinate c8 = new Coordinate(x - 1, y - 1);
+                    if (squares.ContainsKey(c1))
+                    {
+                        adj += squares[c1].isBomb;
+                    }
+                    if (squares.ContainsKey(c2))
+                    {
+                        adj += squares[c2].isBomb;
+                    }
+                    if (squares.ContainsKey(c3))
+                    {
+                        adj += squares[c3].isBomb;
+                    }
+                    if (squares.ContainsKey(c4))
+                    {
+                        adj += squares[c4].isBomb;
+                    }
+                    if (squares.ContainsKey(c5))
+                    {
+                        adj += squares[c5].isBomb;
+                    }
+                    if (squares.ContainsKey(c6))
+                    {
+                        adj += squares[c6].isBomb;
+                    }
+                    if (squares.ContainsKey(c7))
+                    {
+                        adj += squares[c7].isBomb;
+                    }
+                    if (squares.ContainsKey(c8))
+                    {
+                        adj += squares[c8].isBomb;
+                    }
 
+                    squares[new Coordinate(x, y)].numAdjBombs = adj;
+
+                }
+            }
         }
 
         
-
-
         private Dictionary<Coordinate, Square> Generate(int width, int height, int numBombs)
         {
             Dictionary<Coordinate, Square> squares = new Dictionary<Coordinate, Square>();
@@ -50,13 +97,13 @@ namespace Minesweeper
                 }
             }
             int k = 0;
+            Random rng = new Random();
             while (k < numBombs)
             {
-                Random rng = new Random();
-
                 int x = rng.Next(width);
                 int y = rng.Next(height);
                 Coordinate c = new Coordinate(x, y);
+
                 Square s = squares[c];
                 if (s.isBomb == 0)
                 {
@@ -70,7 +117,7 @@ namespace Minesweeper
         private Dictionary<Coordinate, Square> Generate(String filename)
         {
             Dictionary<Coordinate, Square> squares = new Dictionary<Coordinate, Square>();
-            StreamReader file = new StreamReader(filename);
+            StreamReader file = new StreamReader(filename + ".map");
             width = int.Parse(file.ReadLine());
             height = int.Parse(file.ReadLine());
 
@@ -97,9 +144,9 @@ namespace Minesweeper
             return squares;
         }
 
-        private void CreateMapFile(String filename)
+        public void CreateMapFile(String filename)
         {
-            StreamWriter file = new StreamWriter(filename);
+            StreamWriter file = new StreamWriter(filename + ".map");
 
             file.WriteLine(width);
             file.WriteLine(height);

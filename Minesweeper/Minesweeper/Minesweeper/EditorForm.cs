@@ -7,16 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Minesweeper
 {
-    public partial class Form3 : Form
+    public partial class EditorForm : Form
     {
         private int mapX, mapY;
         private Map map { get; set; }
         private Button[,] buttons;
 
-        public Form3(int x, int y)
+        public EditorForm(int x, int y)
         {
             //Test values, grab real values some other way
             mapX = x;
@@ -61,9 +62,14 @@ namespace Minesweeper
                     if (buttons[x, y].Equals(button))
                     {
                         Coordinate c = new Coordinate(x, y);
-                        Square square = map.squares[c];
-                        square.isBomb = 1;
-
+                        if (map.squares[c].isBomb == 1)
+                        {
+                            map.squares[c].isBomb = 0;
+                        } else
+                        {
+                            map.squares[c].isBomb = 1;
+                        }
+                        
                         updateAdj();
 
 
@@ -75,21 +81,37 @@ namespace Minesweeper
 
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form2 menu = new Form2();
+            MainForm menu = new MainForm();
             menu.Show();
             this.Hide();
         }
 
         private void resetMapToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 editor = new Form3(mapX, mapY);
+            EditorForm editor = new EditorForm(mapX, mapY);
             editor.Show();
             this.Hide();
 
         }
 
+        private void saveMapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String filename = fileNameText.Text;
+            if (filename.Length > 0)
+            {
+                fileNameText.BackColor = SystemColors.Window;
+                map.CreateMapFile(filename);
+            } else
+            {
+                fileNameText.BackColor = Color.Crimson;
+            }
+            
+
+        }
+
         private void updateAdj()
         {
+            map.SetAdjBombVals();
             for (int x = 0; x < buttons.GetLength(0); x++)
             {
                 for (int y = 0; y < buttons.GetLength(1); y++)
@@ -103,7 +125,12 @@ namespace Minesweeper
                         {
                             buttons[x, y].Text = square.numAdjBombs.ToString();
                         }
-                    } else
+                        else
+                        {
+                            buttons[x, y].Text = "";
+                        }
+                    }
+                    else
                     {
                         buttons[x, y].Text = "B";
                     }

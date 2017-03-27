@@ -6,7 +6,6 @@ C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.csproj.GenerateResource.Cache
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.exe
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.pdb
-C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.Form1.resources
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\Minesweeper.exe.config
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.exe
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.pdb
@@ -16,6 +15,8 @@ C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Mines
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.Form1.resources
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.Properties.Resources.resources
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.csproj.GenerateResource.Cache
-C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.Form2.resources
-C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.Form3.resources
-C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.Form4.resources
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.csproj.ResolveComReference.cache
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.GameForm.resources
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.MainForm.resources
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.EditorForm.resources
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.SettingsForm.resources
