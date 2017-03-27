@@ -97,6 +97,7 @@ namespace Minesweeper
 
         private void MapClicked(object sender, EventArgs e)
         {
+            bool winCondition = true;
             Button button = sender as Button;
             bool keepLooping = true;
             for (int x = 0; x < buttons.GetLength(0) && keepLooping; x++)
@@ -112,6 +113,22 @@ namespace Minesweeper
                             buttons[x, y].Text = "B";
                             buttons[x, y].BackColor = SystemColors.ScrollBar;
                             square.hasClicked = true;
+                            // Loop through grid to find each bomb and uncover them
+                            for (int xgrid = 0; xgrid < buttons.GetLength(0); xgrid++)
+                            {
+                                for (int ygrid = 0; ygrid < buttons.GetLength(1); ygrid++)
+                                {
+                                    Coordinate cgrid = new Coordinate(xgrid, ygrid);
+                                    Square testsquare = map.squares[cgrid];
+                                    if (testsquare.isBomb == 1)
+                                    {
+                                        buttons[xgrid, ygrid].Text = "B";
+                                        buttons[xgrid, ygrid].BackColor = SystemColors.ScrollBar;
+                                    }
+                                }
+                            }
+                            keepLooping = false;
+                            winCondition = false;
                         } else
                         {
                             int numAdj = square.numAdjBombs;
