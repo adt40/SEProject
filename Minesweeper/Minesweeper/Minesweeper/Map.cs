@@ -21,69 +21,12 @@ namespace Minesweeper
             this.height = height;
             this.numBombs = numBombs;
             squares = Generate(width, height, numBombs);
-            SetAdjBombVals();
         }
 
         public Map(String filename)
         {
             squares = Generate(filename);
-            SetAdjBombVals();
         }
-
-        //public void SetAdjBombVals()
-        //{
-        //    for (int x = 0; x < width; x++)
-        //    {
-        //        for (int y = 0; y < height; y++)
-        //        {
-        //            int adj = 0;
-        //            Coordinate c1 = new Coordinate(x + 1, y);
-        //            Coordinate c2 = new Coordinate(x, y + 1);
-        //            Coordinate c3 = new Coordinate(x - 1, y);
-        //            Coordinate c4 = new Coordinate(x, y - 1);
-        //            Coordinate c5 = new Coordinate(x + 1, y + 1);
-        //            Coordinate c6 = new Coordinate(x - 1, y + 1);
-        //            Coordinate c7 = new Coordinate(x + 1, y - 1);
-        //            Coordinate c8 = new Coordinate(x - 1, y - 1);
-        //            if (squares.ContainsKey(c1))
-        //            {
-        //                adj += squares[c1].isBomb;
-        //            }
-        //            if (squares.ContainsKey(c2))
-        //            {
-        //                adj += squares[c2].isBomb;
-        //            }
-        //            if (squares.ContainsKey(c3))
-        //            {
-        //                adj += squares[c3].isBomb;
-        //            }
-        //            if (squares.ContainsKey(c4))
-        //            {
-        //                adj += squares[c4].isBomb;
-        //            }
-        //            if (squares.ContainsKey(c5))
-        //            {
-        //                adj += squares[c5].isBomb;
-        //            }
-        //            if (squares.ContainsKey(c6))
-        //            {
-        //                adj += squares[c6].isBomb;
-        //            }
-        //            if (squares.ContainsKey(c7))
-        //            {
-        //                adj += squares[c7].isBomb;
-        //            }
-        //            if (squares.ContainsKey(c8))
-        //            {
-        //                adj += squares[c8].isBomb;
-        //            }
-
-        //            squares[new Coordinate(x, y)].numAdjBombs = adj;
-
-        //        }
-        //    }
-        //}
-
         
         private Dictionary<Coordinate, Square> Generate(int width, int height, int numBombs)
         {
@@ -93,7 +36,7 @@ namespace Minesweeper
                 for (int j = 0; j < height; j++)
                 {
                     Coordinate c = new Coordinate(i, j);
-                    squares.Add(c, new Square(c, 0, this));
+                    squares.Add(c, new Square(c, false, this));
                 }
             }
             int k = 0;
@@ -105,9 +48,9 @@ namespace Minesweeper
                 Coordinate c = new Coordinate(x, y);
 
                 Square s = squares[c];
-                if (s.isBomb == 0)
+                if (!s.isBomb)
                 {
-                    s.isBomb = 1;
+                    s.isBomb = true;
                     k++;
                 }
             }
@@ -131,12 +74,12 @@ namespace Minesweeper
                     Coordinate c = new Coordinate(x, y);
                     if (line.ElementAt(x) == 'X')
                     {
-                        squares.Add(c, new Square(c, 1, this));
+                        squares.Add(c, new Square(c, true, this));
                         numBombs++;
                     }
                     else
                     {
-                        squares.Add(c, new Square(c, 0, this));
+                        squares.Add(c, new Square(c, false, this));
                     }
                 }
             }
@@ -158,7 +101,7 @@ namespace Minesweeper
                 for (int x = 0; x < width; x++)
                 {
                     Coordinate c = new Coordinate(x, y);
-                    if (squares[c].isBomb == 1)
+                    if (squares[c].isBomb)
                     {
                         line += 'X';
                     }
