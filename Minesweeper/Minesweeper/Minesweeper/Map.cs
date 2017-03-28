@@ -30,59 +30,59 @@ namespace Minesweeper
             SetAdjBombVals();
         }
 
-        public void SetAdjBombVals()
-        {
-            for (int x = 0; x < width; x++)
-            {
-                for (int y = 0; y < height; y++)
-                {
-                    int adj = 0;
-                    Coordinate c1 = new Coordinate(x + 1, y);
-                    Coordinate c2 = new Coordinate(x, y + 1);
-                    Coordinate c3 = new Coordinate(x - 1, y);
-                    Coordinate c4 = new Coordinate(x, y - 1);
-                    Coordinate c5 = new Coordinate(x + 1, y + 1);
-                    Coordinate c6 = new Coordinate(x - 1, y + 1);
-                    Coordinate c7 = new Coordinate(x + 1, y - 1);
-                    Coordinate c8 = new Coordinate(x - 1, y - 1);
-                    if (squares.ContainsKey(c1))
-                    {
-                        adj += squares[c1].isBomb;
-                    }
-                    if (squares.ContainsKey(c2))
-                    {
-                        adj += squares[c2].isBomb;
-                    }
-                    if (squares.ContainsKey(c3))
-                    {
-                        adj += squares[c3].isBomb;
-                    }
-                    if (squares.ContainsKey(c4))
-                    {
-                        adj += squares[c4].isBomb;
-                    }
-                    if (squares.ContainsKey(c5))
-                    {
-                        adj += squares[c5].isBomb;
-                    }
-                    if (squares.ContainsKey(c6))
-                    {
-                        adj += squares[c6].isBomb;
-                    }
-                    if (squares.ContainsKey(c7))
-                    {
-                        adj += squares[c7].isBomb;
-                    }
-                    if (squares.ContainsKey(c8))
-                    {
-                        adj += squares[c8].isBomb;
-                    }
+        //public void SetAdjBombVals()
+        //{
+        //    for (int x = 0; x < width; x++)
+        //    {
+        //        for (int y = 0; y < height; y++)
+        //        {
+        //            int adj = 0;
+        //            Coordinate c1 = new Coordinate(x + 1, y);
+        //            Coordinate c2 = new Coordinate(x, y + 1);
+        //            Coordinate c3 = new Coordinate(x - 1, y);
+        //            Coordinate c4 = new Coordinate(x, y - 1);
+        //            Coordinate c5 = new Coordinate(x + 1, y + 1);
+        //            Coordinate c6 = new Coordinate(x - 1, y + 1);
+        //            Coordinate c7 = new Coordinate(x + 1, y - 1);
+        //            Coordinate c8 = new Coordinate(x - 1, y - 1);
+        //            if (squares.ContainsKey(c1))
+        //            {
+        //                adj += squares[c1].isBomb;
+        //            }
+        //            if (squares.ContainsKey(c2))
+        //            {
+        //                adj += squares[c2].isBomb;
+        //            }
+        //            if (squares.ContainsKey(c3))
+        //            {
+        //                adj += squares[c3].isBomb;
+        //            }
+        //            if (squares.ContainsKey(c4))
+        //            {
+        //                adj += squares[c4].isBomb;
+        //            }
+        //            if (squares.ContainsKey(c5))
+        //            {
+        //                adj += squares[c5].isBomb;
+        //            }
+        //            if (squares.ContainsKey(c6))
+        //            {
+        //                adj += squares[c6].isBomb;
+        //            }
+        //            if (squares.ContainsKey(c7))
+        //            {
+        //                adj += squares[c7].isBomb;
+        //            }
+        //            if (squares.ContainsKey(c8))
+        //            {
+        //                adj += squares[c8].isBomb;
+        //            }
 
-                    squares[new Coordinate(x, y)].numAdjBombs = adj;
+        //            squares[new Coordinate(x, y)].numAdjBombs = adj;
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
         
         private Dictionary<Coordinate, Square> Generate(int width, int height, int numBombs)
@@ -172,6 +172,14 @@ namespace Minesweeper
             }
 
             file.Close();
+        }
+
+        public Square getSquare(Coordinate position)
+        {
+            if (position.x > width || position.x < 0 || position.y > height || position.y < 0)
+                return null;
+            return squares[position];
+
         }
     }
 }
