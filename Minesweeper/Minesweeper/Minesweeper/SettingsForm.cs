@@ -11,10 +11,11 @@ using System.Diagnostics;
 
 namespace Minesweeper
 {
+    
     public partial class SettingsForm : Form
     {
         private Button buttonSender;
-
+        //public String file;
         public SettingsForm(Button sender)
         {
             buttonSender = sender;
@@ -44,7 +45,7 @@ namespace Minesweeper
                 this.Hide();
             }
         }
-
+        
         private void Form4_Load(object sender, EventArgs e)
         {
             //Create the correct settings based on what button was pressed to open settings
@@ -174,6 +175,19 @@ namespace Minesweeper
                 {
                     bombsScrollBar.Value = bombsVal;
                 }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "MAP Files|*.map";
+            openFileDialog1.Title = "Select a Map";
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                // Assign the cursor in the Stream to the Form's Cursor property.  
+                //this.Cursor = new Cursor(openFileDialog1.OpenFile());
+                customText.Text = System.IO.Path.GetFileName(openFileDialog1.FileName); 
             }
         }
     }

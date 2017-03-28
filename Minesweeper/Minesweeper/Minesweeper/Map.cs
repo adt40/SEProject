@@ -117,7 +117,7 @@ namespace Minesweeper
         private Dictionary<Coordinate, Square> Generate(String filename)
         {
             Dictionary<Coordinate, Square> squares = new Dictionary<Coordinate, Square>();
-            StreamReader file = new StreamReader(filename + ".map");
+            StreamReader file = new StreamReader(filename);
             width = int.Parse(file.ReadLine());
             height = int.Parse(file.ReadLine());
 

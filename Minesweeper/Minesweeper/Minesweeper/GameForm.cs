@@ -16,7 +16,7 @@ namespace Minesweeper
         private int mapX, mapY, numBombs;
         private Map map { get; set; }
         private Button[,] buttons;
-
+        private bool winCondition = true;
         public GameForm(int x, int y, int bombs)
         {
             //Test values, grab real values some other way
@@ -97,7 +97,7 @@ namespace Minesweeper
 
         private void MapClicked(object sender, EventArgs e)
         {
-            bool winCondition = true;
+
             Button button = sender as Button;
             bool keepLooping = true;
             for (int x = 0; x < buttons.GetLength(0) && keepLooping; x++)
@@ -127,8 +127,10 @@ namespace Minesweeper
                                     }
                                 }
                             }
-                            keepLooping = false;
                             winCondition = false;
+                            LoseForm youLose = new LoseForm();
+                            youLose.ShowDialog();
+                            
                         } else
                         {
                             int numAdj = square.numAdjBombs;
