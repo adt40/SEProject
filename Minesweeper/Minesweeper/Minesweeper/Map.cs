@@ -93,7 +93,7 @@ namespace Minesweeper
                 for (int j = 0; j < height; j++)
                 {
                     Coordinate c = new Coordinate(i, j);
-                    squares.Add(c, new Square(c, 0));
+                    squares.Add(c, new Square(c, 0, this));
                 }
             }
             int k = 0;
@@ -131,12 +131,12 @@ namespace Minesweeper
                     Coordinate c = new Coordinate(x, y);
                     if (line.ElementAt(x) == 'X')
                     {
-                        squares.Add(c, new Square(c, 1));
+                        squares.Add(c, new Square(c, 1, this));
                         numBombs++;
                     }
                     else
                     {
-                        squares.Add(c, new Square(c, 0));
+                        squares.Add(c, new Square(c, 0, this));
                     }
                 }
             }
