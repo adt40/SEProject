@@ -62,14 +62,7 @@ namespace Minesweeper
                     if (buttons[x, y].Equals(button))
                     {
                         Coordinate c = new Coordinate(x, y);
-                        if (map.squares[c].isBomb)
-                        {
-                            map.squares[c].isBomb = false;
-                        } else
-                        {
-                            map.squares[c].isBomb = true;
-                        }
-                        
+                        map.squares[c].isBomb = !map.squares[c].isBomb;                        
                         updateAdj();
 
 
@@ -125,7 +118,7 @@ namespace Minesweeper
                 {
                     Coordinate c = new Coordinate(x, y);
                     Square square = map.squares[c];
-                    if (square.isBomb)
+                    if (!square.isBomb)
                     {
                         int adj = square.numAdjBombs;
                         if (adj != 0)
