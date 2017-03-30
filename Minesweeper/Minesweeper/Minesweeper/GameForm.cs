@@ -97,63 +97,32 @@ namespace Minesweeper
 
         private void MapClicked(object sender, EventArgs e)
         {
-            
-            Button button = sender as Button;
-            bool keepLooping = true;
-            for (int x = 0; x < buttons.GetLength(0) && keepLooping; x++)
+            Coordinate buttonCoordinates = findButtonCoordinates(sender as Button);
+            Button button = buttons[buttonCoordinates.x, buttonCoordinates.y];
+            Square square = map.squares[buttonCoordinates];
+            if (square.hasClicked || square.hasFlag) return;
+
+            square.hasClicked = true;
+            if (square.isBomb)
             {
-                for (int y = 0; y < buttons.GetLength(1) && keepLooping; y++)
+                loseAt(button);
+            }
+            else
+            {
+                int numAdj = square.numAdjBombs;
+                if (numAdj == 0)
                 {
-                    if (buttons[x, y].Equals(button))
-                    {
-                        Coordinate c = new Coordinate(x, y);
-                        Square square = map.squares[c];
-                        if (square.isBomb)
-                        {
-                            //If you lose like a heckin dummy
-                            buttons[x, y].Text = "B";
-                            buttons[x, y].BackColor = SystemColors.ScrollBar;
-                            square.hasClicked = true;
-                            // Loop through grid to find each bomb and uncover them
-                            for (int xgrid = 0; xgrid < buttons.GetLength(0); xgrid++)
-                            {
-                                for (int ygrid = 0; ygrid < buttons.GetLength(1); ygrid++)
-                                {
-                                    Coordinate cgrid = new Coordinate(xgrid, ygrid);
-                                    Square testsquare = map.squares[cgrid];
-                                    if (testsquare.isBomb)
-                                    {
-                                        buttons[xgrid, ygrid].Text = "B";
-                                        buttons[xgrid, ygrid].BackColor = SystemColors.ScrollBar;
-                                    }
-                                }
-                            }
-                            winCondition = false;
-                            LoseForm youLose = new LoseForm();
-                            youLose.ShowDialog();
-                            
-                        } else
-                        {
-                            int numAdj = square.numAdjBombs;
-                            if (numAdj == 0)
-                            {
-                                buttons[x, y].BackColor = SystemColors.ScrollBar;
-                                square.hasClicked = true;
-                                revealZeros(x, y);
-                                
-                            } else
-                            {
-                                buttons[x, y].Text = numAdj.ToString();
-                                buttons[x, y].BackColor = SystemColors.ScrollBar;
-                                square.hasClicked = true;
-                                
-                            }
-                            
+                    button.BackColor = SystemColors.ScrollBar;
+                    square.hasClicked = true;
+                    revealZeros(buttonCoordinates.x, buttonCoordinates.y);
 
-                        }
+                }
+                else
+                {
+                    button.Text = numAdj.ToString();
+                    button.BackColor = SystemColors.ScrollBar;
+                    square.hasClicked = true;
 
-                        keepLooping = false;
-                    }
                 }
             }
         }
@@ -173,7 +142,8 @@ namespace Minesweeper
                             buttons[x + i, y + j].BackColor = SystemColors.ScrollBar;
                             map.squares[c].hasClicked = true;
                             revealZeros(x + i, y + j);
-                        } else if (map.squares[c].numAdjBombs > 0)
+                        }
+                        else if (map.squares[c].numAdjBombs > 0)
                         {
                             buttons[x + i, y + j].Text = map.squares[c].numAdjBombs.ToString();
                             buttons[x + i, y + j].BackColor = SystemColors.ScrollBar;
@@ -183,6 +153,42 @@ namespace Minesweeper
 
                 }
             }
+        }
+
+        private Coordinate findButtonCoordinates(Button sender)
+        {
+            for (int x = 0; x < buttons.GetLength(0); x++)
+            {
+                for (int y = 0; y < buttons.GetLength(1); y++)
+                {
+                    if (buttons[x, y].Equals(sender)) return new Coordinate(x, y);
+                }
+            }
+            return null;
+        }
+
+        private void loseAt(Button button)
+        {
+            //If you lose like a heckin dummy
+            button.Text = "B";
+            button.BackColor = SystemColors.ScrollBar;
+            // Loop through grid to find each bomb and uncover them
+            for (int xgrid = 0; xgrid < buttons.GetLength(0); xgrid++)
+            {
+                for (int ygrid = 0; ygrid < buttons.GetLength(1); ygrid++)
+                {
+                    Coordinate cgrid = new Coordinate(xgrid, ygrid);
+                    Square testsquare = map.squares[cgrid];
+                    if (testsquare.isBomb)
+                    {
+                        buttons[xgrid, ygrid].Text = "B";
+                        buttons[xgrid, ygrid].BackColor = SystemColors.ScrollBar;
+                    }
+                }
+            }
+            winCondition = false;
+            LoseForm youLose = new LoseForm();
+            youLose.ShowDialog();
         }
     }
 }
