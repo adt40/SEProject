@@ -88,217 +88,126 @@ namespace Minesweeper
                     buttons[x, y].Width = buttonSize;
                     buttons[x, y].Height = buttonSize;
                     buttons[x, y].Click += new EventHandler(MapClicked);
+                    buttons[x, y].MouseDown += new MouseEventHandler(MapRightClicked);
 
                     this.Controls.Add(buttons[x, y]);
                 }
             }
+            map.SetAdjBombVals();
+        }
 
+        private void MapRightClicked(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Right) return; //If it's not a right click, we don't care
+            Coordinate buttonCoordinates = findButtonCoordinates(sender as Button);
+            Button button = buttons[buttonCoordinates.x, buttonCoordinates.y];
+            Square square = map.squares[buttonCoordinates];
+            if (!square.hasFlag)
+            {
+                square.hasFlag = true;
+                button.Text = "F";
+            }
+            else
+            {
+                square.hasFlag = false;
+                button.Text = "";
+            }
         }
 
         private void MapClicked(object sender, EventArgs e)
         {
+            Coordinate buttonCoordinates = findButtonCoordinates(sender as Button);
+            Button button = buttons[buttonCoordinates.x, buttonCoordinates.y];
+            Square square = map.squares[buttonCoordinates];
+            if (square.hasClicked || square.hasFlag) return;
 
-            Button button = sender as Button;
-            bool keepLooping = true;
-            for (int x = 0; x < buttons.GetLength(0) && keepLooping; x++)
+            square.hasClicked = true;
+            if (square.isBomb)
             {
-                for (int y = 0; y < buttons.GetLength(1) && keepLooping; y++)
+                loseAt(button);
+            }
+            else
+            {
+                int numAdj = square.numAdjBombs;
+                if (numAdj == 0)
                 {
-                    if (buttons[x, y].Equals(button))
-                    {
-                        Coordinate c = new Coordinate(x, y);
-                        Square square = map.squares[c];
-                        if (square.isBomb == 1)
-                        {
-                            buttons[x, y].Text = "B";
-                            buttons[x, y].BackColor = SystemColors.ScrollBar;
-                            square.hasClicked = true;
-                            // Loop through grid to find each bomb and uncover them
-                            for (int xgrid = 0; xgrid < buttons.GetLength(0); xgrid++)
-                            {
-                                for (int ygrid = 0; ygrid < buttons.GetLength(1); ygrid++)
-                                {
-                                    Coordinate cgrid = new Coordinate(xgrid, ygrid);
-                                    Square testsquare = map.squares[cgrid];
-                                    if (testsquare.isBomb == 1)
-                                    {
-                                        buttons[xgrid, ygrid].Text = "B";
-                                        buttons[xgrid, ygrid].BackColor = SystemColors.ScrollBar;
-                                    }
-                                }
-                            }
-                            winCondition = false;
-                            LoseForm youLose = new LoseForm();
-                            youLose.ShowDialog();
-                            
-                        } else
-                        {
-                            int numAdj = square.numAdjBombs;
-                            if (numAdj == 0)
-                            {
-                                buttons[x, y].BackColor = SystemColors.ScrollBar;
-                                square.hasClicked = true;
-                                revealZeros(x, y);
-                                
-                            } else
-                            {
-                                buttons[x, y].Text = numAdj.ToString();
-                                buttons[x, y].BackColor = SystemColors.ScrollBar;
-                                square.hasClicked = true;
-                                
-                            }
-                            
+                    button.BackColor = SystemColors.ScrollBar;
+                    square.hasClicked = true;
+                    revealZeros(buttonCoordinates.x, buttonCoordinates.y);
 
-                        }
+                }
+                else
+                {
+                    button.Text = numAdj.ToString();
+                    button.BackColor = SystemColors.ScrollBar;
+                    square.hasClicked = true;
 
-                        keepLooping = false;
-                    }
                 }
             }
         }
 
         private void revealZeros(int x, int y)
         {
-            //Directly Adjacent
-            if (x != mapX - 1)
+            for (int i = -1; i <= 1; i++)
             {
-                Square squareRight = map.squares[new Coordinate(x + 1, y)];
-                if (squareRight.numAdjBombs == 0 && squareRight.hasClicked == false)
+                for (int j = -1; j <= 1; j++)
                 {
-                    buttons[x + 1, y].BackColor = SystemColors.ScrollBar;
-                    squareRight.hasClicked = true;
-                    revealZeros(x + 1, y);
-                }
-                else if (squareRight.numAdjBombs > 0)
-                {
-                    buttons[x + 1, y].Text = squareRight.numAdjBombs.ToString();
-                    buttons[x + 1, y].BackColor = SystemColors.ScrollBar;
-                    squareRight.hasClicked = true;
-                }
-            }
+                    if (i == 0 && j == 0) continue;
+                    Coordinate c = new Coordinate(x + i, y + j);
+                    if (map.squares.ContainsKey(c))
+                    {
+                        if (map.squares[c].numAdjBombs == 0 && !map.squares[c].hasClicked)
+                        {
+                            buttons[x + i, y + j].BackColor = SystemColors.ScrollBar;
+                            map.squares[c].hasClicked = true;
+                            revealZeros(x + i, y + j);
+                        }
+                        else if (map.squares[c].numAdjBombs > 0)
+                        {
+                            buttons[x + i, y + j].Text = map.squares[c].numAdjBombs.ToString();
+                            buttons[x + i, y + j].BackColor = SystemColors.ScrollBar;
+                            map.squares[c].hasClicked = true;
+                        }
+                    }
 
-            if (x != 0)
-            {
-                Square squareLeft = map.squares[new Coordinate(x - 1, y)];
-                if (squareLeft.numAdjBombs == 0 && squareLeft.hasClicked == false)
-                {
-                    buttons[x - 1, y].BackColor = SystemColors.ScrollBar;
-                    squareLeft.hasClicked = true;
-                    revealZeros(x - 1, y);
-                }
-                else if (squareLeft.numAdjBombs > 0)
-                {
-                    buttons[x - 1, y].Text = squareLeft.numAdjBombs.ToString();
-                    buttons[x - 1, y].BackColor = SystemColors.ScrollBar;
-                    squareLeft.hasClicked = true;
-                }
-            }
-
-            if (y != mapY - 1)
-            {
-                Square squareDown = map.squares[new Coordinate(x, y + 1)];
-                if (squareDown.numAdjBombs == 0 && squareDown.hasClicked == false)
-                {
-                    buttons[x, y + 1].BackColor = SystemColors.ScrollBar;
-                    squareDown.hasClicked = true;
-                    revealZeros(x, y + 1);
-                }
-                else if (squareDown.numAdjBombs > 0)
-                {
-                    buttons[x, y + 1].Text = squareDown.numAdjBombs.ToString();
-                    buttons[x, y + 1].BackColor = SystemColors.ScrollBar;
-                    squareDown.hasClicked = true;
-                }
-            }
-
-            if (y != 0)
-            {
-                Square squareUp = map.squares[new Coordinate(x, y - 1)];
-                if (squareUp.numAdjBombs == 0 && squareUp.hasClicked == false)
-                {
-                    buttons[x, y - 1].BackColor = SystemColors.ScrollBar;
-                    squareUp.hasClicked = true;
-                    revealZeros(x, y - 1);
-                }
-                else if (squareUp.numAdjBombs > 0)
-                {
-                    buttons[x, y - 1].Text = squareUp.numAdjBombs.ToString();
-                    buttons[x, y - 1].BackColor = SystemColors.ScrollBar;
-                    squareUp.hasClicked = true;
-                }
-            }
-
-
-            //Diagonal
-            if (x != mapX - 1 && y != mapY - 1)
-            {
-                Square squareDownRight = map.squares[new Coordinate(x + 1, y + 1)];
-                if (squareDownRight.numAdjBombs == 0 && squareDownRight.hasClicked == false)
-                {
-                    buttons[x + 1, y + 1].BackColor = SystemColors.ScrollBar;
-                    squareDownRight.hasClicked = true;
-                    revealZeros(x + 1, y + 1);
-                }
-                else if (squareDownRight.numAdjBombs > 0)
-                {
-                    buttons[x + 1, y + 1].Text = squareDownRight.numAdjBombs.ToString();
-                    buttons[x + 1, y + 1].BackColor = SystemColors.ScrollBar;
-                    squareDownRight.hasClicked = true;
-                }
-            }
-
-            if (x != mapX - 1 && y != 0)
-            {
-                Square squareUpRight = map.squares[new Coordinate(x + 1, y - 1)];
-                if (squareUpRight.numAdjBombs == 0 && squareUpRight.hasClicked == false)
-                {
-                    buttons[x + 1, y - 1].BackColor = SystemColors.ScrollBar;
-                    squareUpRight.hasClicked = true;
-                    revealZeros(x + 1, y - 1);
-                }
-                else if (squareUpRight.numAdjBombs > 0)
-                {
-                    buttons[x + 1, y - 1].Text = squareUpRight.numAdjBombs.ToString();
-                    buttons[x + 1, y - 1].BackColor = SystemColors.ScrollBar;
-                    squareUpRight.hasClicked = true;
-                }
-            }
-
-            if (x != 0 && y != mapY - 1)
-            {
-                Square squareDownLeft = map.squares[new Coordinate(x - 1, y + 1)];
-                if (squareDownLeft.numAdjBombs == 0 && squareDownLeft.hasClicked == false)
-                {
-                    buttons[x - 1, y + 1].BackColor = SystemColors.ScrollBar;
-                    squareDownLeft.hasClicked = true;
-                    revealZeros(x - 1, y + 1);
-                }
-                else if (squareDownLeft.numAdjBombs > 0)
-                {
-                    buttons[x - 1, y + 1].Text = squareDownLeft.numAdjBombs.ToString();
-                    buttons[x - 1, y + 1].BackColor = SystemColors.ScrollBar;
-                    squareDownLeft.hasClicked = true;
-                }
-            }
-
-            if (x != 0 && y != 0)
-            {
-                Square squareUpLeft = map.squares[new Coordinate(x - 1, y - 1)];
-                if (squareUpLeft.numAdjBombs == 0 && squareUpLeft.hasClicked == false)
-                {
-                    buttons[x - 1, y - 1].BackColor = SystemColors.ScrollBar;
-                    squareUpLeft.hasClicked = true;
-                    revealZeros(x - 1, y - 1);
-                }
-                else if (squareUpLeft.numAdjBombs > 0)
-                {
-                    buttons[x - 1, y - 1].Text = squareUpLeft.numAdjBombs.ToString();
-                    buttons[x - 1, y - 1].BackColor = SystemColors.ScrollBar;
-                    squareUpLeft.hasClicked = true;
                 }
             }
         }
 
+        private Coordinate findButtonCoordinates(Button sender)
+        {
+            for (int x = 0; x < buttons.GetLength(0); x++)
+            {
+                for (int y = 0; y < buttons.GetLength(1); y++)
+                {
+                    if (buttons[x, y].Equals(sender)) return new Coordinate(x, y);
+                }
+            }
+            return null;
+        }
 
+        private void loseAt(Button button)
+        {
+            //If you lose like a heckin dummy
+            button.Text = "B";
+            button.BackColor = SystemColors.ScrollBar;
+            // Loop through grid to find each bomb and uncover them
+            for (int xgrid = 0; xgrid < buttons.GetLength(0); xgrid++)
+            {
+                for (int ygrid = 0; ygrid < buttons.GetLength(1); ygrid++)
+                {
+                    Coordinate cgrid = new Coordinate(xgrid, ygrid);
+                    Square testsquare = map.squares[cgrid];
+                    if (testsquare.isBomb)
+                    {
+                        buttons[xgrid, ygrid].Text = "B";
+                        buttons[xgrid, ygrid].BackColor = SystemColors.ScrollBar;
+                    }
+                }
+            }
+            winCondition = false;
+            LoseForm youLose = new LoseForm();
+            youLose.ShowDialog();
+        }
     }
 }
