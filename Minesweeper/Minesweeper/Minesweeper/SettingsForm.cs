@@ -190,5 +190,10 @@ namespace Minesweeper
                 customText.Text = System.IO.Path.GetFileName(openFileDialog1.FileName); 
             }
         }
+
+        private void customText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

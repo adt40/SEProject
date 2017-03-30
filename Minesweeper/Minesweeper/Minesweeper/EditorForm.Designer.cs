@@ -35,6 +35,7 @@
             this.saveMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileNameText = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.uploadDownloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,8 @@
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.resetMapToolStripMenuItem,
             this.mainMenuToolStripMenuItem,
-            this.saveMapToolStripMenuItem});
+            this.saveMapToolStripMenuItem,
+            this.uploadDownloadToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
@@ -61,21 +63,21 @@
             // resetMapToolStripMenuItem
             // 
             this.resetMapToolStripMenuItem.Name = "resetMapToolStripMenuItem";
-            this.resetMapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.resetMapToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.resetMapToolStripMenuItem.Text = "Reset Map";
             this.resetMapToolStripMenuItem.Click += new System.EventHandler(this.resetMapToolStripMenuItem_Click);
             // 
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
             // 
             // saveMapToolStripMenuItem
             // 
             this.saveMapToolStripMenuItem.Name = "saveMapToolStripMenuItem";
-            this.saveMapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveMapToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.saveMapToolStripMenuItem.Text = "Save Map";
             this.saveMapToolStripMenuItem.Click += new System.EventHandler(this.saveMapToolStripMenuItem_Click);
             // 
@@ -96,6 +98,13 @@
             this.label1.Size = new System.Drawing.Size(74, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Map Name";
+            // 
+            // uploadDownloadToolStripMenuItem
+            // 
+            this.uploadDownloadToolStripMenuItem.Name = "uploadDownloadToolStripMenuItem";
+            this.uploadDownloadToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.uploadDownloadToolStripMenuItem.Text = "Upload/Download";
+            this.uploadDownloadToolStripMenuItem.Click += new System.EventHandler(this.uploadDownloadToolStripMenuItem_Click);
             // 
             // EditorForm
             // 
@@ -125,5 +134,6 @@
         private System.Windows.Forms.ToolStripMenuItem saveMapToolStripMenuItem;
         private System.Windows.Forms.TextBox fileNameText;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem uploadDownloadToolStripMenuItem;
     }
 }

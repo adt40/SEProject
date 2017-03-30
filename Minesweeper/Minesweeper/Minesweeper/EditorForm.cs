@@ -109,6 +109,13 @@ namespace Minesweeper
 
         }
 
+        private void uploadDownloadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NetworkForm network = new NetworkForm();
+            network.Show();
+            this.Hide();
+        }
+
         private void updateAdj()
         {
             map.SetAdjBombVals();

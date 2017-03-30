@@ -148,6 +148,7 @@
             this.customText.Name = "customText";
             this.customText.Size = new System.Drawing.Size(150, 20);
             this.customText.TabIndex = 13;
+            this.customText.TextChanged += new System.EventHandler(this.customText_TextChanged);
             // 
             // customLabel
             // 

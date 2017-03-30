@@ -40,3 +40,4 @@ C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\M
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.csproj.GenerateResource.Cache
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.exe
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.pdb
+C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.NetworkForm.resources
