@@ -25,3 +25,4 @@ C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Mines
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.EditorForm.resources
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.SettingsForm.resources
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.LoseForm.resources
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.LoseForm.resources

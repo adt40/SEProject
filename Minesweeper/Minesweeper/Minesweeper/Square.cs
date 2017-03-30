@@ -25,6 +25,7 @@ namespace Minesweeper
             numAdjBombs = 0; //init value, will change with Map calculation
         }
 
+        /*
         public void isClicked()
         {
             if (hasClicked)
@@ -46,6 +47,6 @@ namespace Minesweeper
             numAdjBombs = bombAdjNum;
             return; //TODO: Add numAdjBombs to square display
         }
-        
+        */
     }
 }

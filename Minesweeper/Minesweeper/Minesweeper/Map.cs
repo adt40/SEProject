@@ -27,7 +27,39 @@ namespace Minesweeper
         {
             squares = Generate(filename);
         }
-        
+
+        public void SetAdjBombVals()
+        {
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    Coordinate c = new Coordinate(x, y);
+                    if (!squares[c].isBomb)
+                    {
+                        int bombAdjNum = 0;
+                        for (int i = -1; i <= 1; i++)
+                        {
+                            for (int j = -1; j <= 1; j++)
+                            {
+                                if (j == 0 && i == 0) continue; //Don't need to check this square
+                                Coordinate checkC = new Coordinate(x + i, y + j);
+                                if (squares.ContainsKey(checkC))
+                                {
+                                    Square checkSquare = squares[checkC];
+                                    if (checkSquare.isBomb)
+                                        bombAdjNum++;
+                                }
+                            }
+                        }
+                        squares[new Coordinate(x, y)].numAdjBombs = bombAdjNum;
+                    }
+                }
+            }
+        }
+
+
+
         private Dictionary<Coordinate, Square> Generate(int width, int height, int numBombs)
         {
             Dictionary<Coordinate, Square> squares = new Dictionary<Coordinate, Square>();
@@ -115,14 +147,6 @@ namespace Minesweeper
             }
 
             file.Close();
-        }
-
-        public Square getSquare(Coordinate position)
-        {
-            if (position.x > width || position.x < 0 || position.y > height || position.y < 0)
-                return null;
-            return squares[position];
-
         }
     }
 }
