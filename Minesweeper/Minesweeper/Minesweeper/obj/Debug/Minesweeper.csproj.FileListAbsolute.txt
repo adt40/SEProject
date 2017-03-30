@@ -26,3 +26,17 @@ C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Mines
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.SettingsForm.resources
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.LoseForm.resources
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.LoseForm.resources
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\Minesweeper.exe.config
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\Minesweeper.exe
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\Minesweeper.pdb
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.csprojResolveAssemblyReference.cache
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.csproj.ResolveComReference.cache
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.GameForm.resources
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.LoseForm.resources
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.MainForm.resources
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.EditorForm.resources
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.SettingsForm.resources
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.Properties.Resources.resources
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.csproj.GenerateResource.Cache
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.exe
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.pdb

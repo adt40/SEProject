@@ -88,11 +88,30 @@ namespace Minesweeper
                     buttons[x, y].Width = buttonSize;
                     buttons[x, y].Height = buttonSize;
                     buttons[x, y].Click += new EventHandler(MapClicked);
+                    buttons[x, y].MouseDown += new MouseEventHandler(MapRightClicked);
 
                     this.Controls.Add(buttons[x, y]);
                 }
             }
             map.SetAdjBombVals();
+        }
+
+        private void MapRightClicked(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Right) return; //If it's not a right click, we don't care
+            Coordinate buttonCoordinates = findButtonCoordinates(sender as Button);
+            Button button = buttons[buttonCoordinates.x, buttonCoordinates.y];
+            Square square = map.squares[buttonCoordinates];
+            if (!square.hasFlag)
+            {
+                square.hasFlag = true;
+                button.Text = "F";
+            }
+            else
+            {
+                square.hasFlag = false;
+                button.Text = "";
+            }
         }
 
         private void MapClicked(object sender, EventArgs e)
