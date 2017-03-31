@@ -51,7 +51,7 @@ namespace Minesweeper
             }
         }
 
-        protected void MapClicked(object sender, EventArgs e)
+        public void MapClicked(object sender, EventArgs e)
         {
             Button button = sender as Button;
             bool keepLooping = true;

@@ -42,5 +42,38 @@ namespace MinesweeperTests
             Assert.AreEqual(testmapx, testEditor4.mapX);
             Assert.AreEqual(testmapy, testEditor4.mapY);
         }
+        [TestMethod]
+        public void MapClickedTest()
+        {
+            // check an empty space can be clicked and if it's a bomb
+            bool bomb = true;
+            Coordinate checker = new Coordinate(0, 0);
+            EditorForm testEditor1 = new EditorForm(5, 5);
+            testEditor1.MapClicked(testEditor1.buttons[0, 0], null);
+            Assert.AreEqual(checker, testEditor1.check);
+            Assert.AreEqual(bomb, testEditor1.map.squares[checker].isBomb);
+            //check a filled space can be clicked and now not a bomb
+            testEditor1.MapClicked(testEditor1.buttons[0, 0], null);
+            Assert.AreEqual(checker, testEditor1.check);
+            Assert.AreEqual(bomb, testEditor1.map.squares[checker].isBomb);
+        }
+        [TestMethod]
+        public void updateAdjTest()
+        {
+            String checka = "B";
+            String neighbor = "1";
+            Coordinate checker = new Coordinate(0, 0);
+            EditorForm testEditor1 = new EditorForm(5, 5);
+            testEditor1.map.squares[checker].isBomb = !testEditor1.map.squares[checker].isBomb;
+            testEditor1.updateAdj();
+            //checking to see if bombs are there after "click"
+            Assert.AreEqual(checka, testEditor1.buttons[0, 0].Text);
+            Coordinate[] adjCheck = { new Coordinate(0, 1), new Coordinate(1, 1), new Coordinate(1, 0) };
+            //checking the appended numbers next to bomb
+            foreach (Coordinate c in adjCheck)
+            {
+                Assert.AreEqual(neighbor, testEditor1.buttons[c.x, c.y].Text);
+            }
+        }
     }
 }
