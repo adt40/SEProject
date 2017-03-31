@@ -40,14 +40,14 @@ namespace MinesweeperTests
             Map testMap = new Map("testmap.map");
             testMap.CreateMapFile("createdmap");
             String readText = File.ReadAllText("createdmap.map");
-            String expectedText = "5\n" +
-                                  "5\n" +
-                                  "OOOOX\n" +
-                                  "OOOOO\n" +
-                                  "OOXOO\n" +
-                                  "OOOOO\n" +
-                                  "XOOOO\n";
-            Assert.AreEqual(readText, expectedText);
+            String expectedText = "5\r\n" +
+                                  "5\r\n" +
+                                  "OOOOX\r\n" +
+                                  "OOOOO\r\n" +
+                                  "OOXOO\r\n" +
+                                  "OOOOO\r\n" +
+                                  "XOOOO\r\n";
+            Assert.IsTrue(expectedText.Equals(readText));
         }
     }
 }
