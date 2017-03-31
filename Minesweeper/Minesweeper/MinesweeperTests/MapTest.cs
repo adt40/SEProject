@@ -12,9 +12,25 @@ namespace MinesweeperTests
     public class MapTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestGenerateFromInts()
         {
+            Map testMap = new Map(5, 5, 3);
+            Assert.AreEqual(testMap.testNumBombs(), 3);
+            Assert.IsNotNull(testMap.squares);
+        }
 
+        [TestMethod]
+        public void TestGenerateFromFileAndSetAdjBombVals()
+        {
+            Map testMap = new Map("testmap.map");
+            testMap.SetAdjBombVals();
+            String expectedLayout = "0001X\n" +
+                                    "01121\n" +
+                                    "01X10\n" +
+                                    "12110\n" +
+                                    "X1000\n";
+            Assert.AreEqual(testMap.viewBombsAndNums(), expectedLayout);
+            Assert.AreEqual(testMap.testNumBombs(), 3);
         }
     }
 }
