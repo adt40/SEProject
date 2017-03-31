@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Minesweeper
 {
+    [ExcludeFromCodeCoverage]
     public partial class MainForm : Form
     {
         public MainForm()
