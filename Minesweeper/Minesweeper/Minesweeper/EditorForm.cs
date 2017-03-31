@@ -8,15 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Minesweeper
 {
     public partial class EditorForm : Form
     {
         public int mapX, mapY;
-        private Map map { get; set; }
-        private Button[,] buttons;
-
+        public Map map { get; set; }
+        public Button[,] buttons;
+        public Coordinate check;
         public EditorForm(int x, int y)
         {
             //Test values, grab real values some other way
@@ -62,6 +63,7 @@ namespace Minesweeper
                     if (buttons[x, y].Equals(button))
                     {
                         Coordinate c = new Coordinate(x, y);
+                        check = c;
                         map.squares[c].isBomb = !map.squares[c].isBomb;                        
                         updateAdj();
 
@@ -71,14 +73,14 @@ namespace Minesweeper
                 }
             }
         }
-
+        [ExcludeFromCodeCoverage]
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MainForm menu = new MainForm();
             menu.Show();
             this.Hide();
         }
-
+        [ExcludeFromCodeCoverage]
         private void resetMapToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditorForm editor = new EditorForm(mapX, mapY);
@@ -86,7 +88,7 @@ namespace Minesweeper
             this.Hide();
 
         }
-
+        [ExcludeFromCodeCoverage]
         private void saveMapToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String filename = fileNameText.Text;
@@ -101,7 +103,7 @@ namespace Minesweeper
             
 
         }
-
+        [ExcludeFromCodeCoverage]
         private void uploadDownloadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NetworkForm network = new NetworkForm();
@@ -109,7 +111,7 @@ namespace Minesweeper
             this.Hide();
         }
 
-        private void updateAdj()
+        public void updateAdj()
         {
             map.SetAdjBombVals();
             for (int x = 0; x < buttons.GetLength(0); x++)
