@@ -106,5 +106,18 @@ namespace MinesweeperTests
             }
            
         }
+
+        [TestMethod]
+        public void testFindButtonCoordinates()
+        {
+            GameForm testForm = new GameForm("testmap.map");
+            Button sender = new Button();
+            testForm.Form1_Load(sender, null);
+            Coordinate found = testForm.findButtonCoordinates(testForm.buttons[1, 4]);
+            Coordinate notFound = testForm.findButtonCoordinates(null);
+            Coordinate expected = new Coordinate(1, 4);
+            Assert.AreEqual(found, expected);
+            Assert.IsNull(notFound);
+        }
     }
 }

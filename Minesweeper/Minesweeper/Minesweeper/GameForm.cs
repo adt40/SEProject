@@ -184,7 +184,7 @@ namespace Minesweeper
             }
         }
 
-        private Coordinate findButtonCoordinates(Button sender)
+        public Coordinate findButtonCoordinates(Button sender)
         {
             for (int x = 0; x < buttons.GetLength(0); x++)
             {
