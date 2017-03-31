@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Minesweeper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
 
 namespace MinesweeperTests
 {
@@ -31,6 +32,22 @@ namespace MinesweeperTests
                                     "B1000\n";
             Assert.AreEqual(testMap.viewBombsAndNums(), expectedLayout);
             Assert.AreEqual(testMap.testNumBombs(), 3);
+        }
+
+        [TestMethod]
+        public void TestCreateMapFile()
+        {
+            Map testMap = new Map("testmap.map");
+            testMap.CreateMapFile("createdmap");
+            String readText = File.ReadAllText("createdmap.map");
+            String expectedText = "5\n" +
+                                  "5\n" +
+                                  "OOOOX\n" +
+                                  "OOOOO\n" +
+                                  "OOXOO\n" +
+                                  "OOOOO\n" +
+                                  "XOOOO\n";
+            Assert.AreEqual(readText, expectedText);
         }
     }
 }
