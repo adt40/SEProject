@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MinesweeperTests
 {
     [TestClass]
-    class MapTest
+    public class MapTest
     {
         [TestMethod]
         public void TestMethod1()

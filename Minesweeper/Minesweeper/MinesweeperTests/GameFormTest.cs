@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MinesweeperTests
 {
     [TestClass]
-    class GameFormTest
+    public class GameFormTest
     {
         [TestMethod]
         public void FormLoadTest()
@@ -25,39 +25,39 @@ namespace MinesweeperTests
             //mapx = 0, mapy > 0
             GameForm testgame2 = new GameForm(0, 1, 0);
             testmapy = 1;
-            Assert.AreEqual(testmapx, testgame1.mapX);
-            Assert.AreEqual(testmapy, testgame1.mapY);
+            Assert.AreEqual(testmapx, testgame2.mapX);
+            Assert.AreEqual(testmapy, testgame2.mapY);
 
             //mapx > 0, mapy = 0
             GameForm testgame3 = new GameForm(1, 0, 0);
             testmapx = 1;
             testmapy = 0;
-            Assert.AreEqual(testmapx, testgame1.mapX);
-            Assert.AreEqual(testmapy, testgame1.mapY);
+            Assert.AreEqual(testmapx, testgame3.mapX);
+            Assert.AreEqual(testmapy, testgame3.mapY);
 
             //mapx > 0, mapy > 0
             GameForm testgame4 = new GameForm(1, 1, 0);
             testmapx = 1;
             testmapy = 1;
-            Assert.AreEqual(testmapx, testgame1.mapX);
-            Assert.AreEqual(testmapy, testgame1.mapY);
+            Assert.AreEqual(testmapx, testgame4.mapX);
+            Assert.AreEqual(testmapy, testgame4.mapY);
 
             //numBombs = 0
             GameForm testgame5 = new GameForm(5, 5, 0);
-            Assert.AreEqual(testbomb, testgame1.numBombs);
+            Assert.AreEqual(testbomb, testgame5.numBombs);
             //numBombs > 0
             GameForm testgame6 = new GameForm(5, 5, 1);
             testbomb = 1;
-            Assert.AreEqual(testbomb, testgame1.numBombs);
+            Assert.AreEqual(testbomb, testgame6.numBombs);
         }
 
         [TestMethod]
-        public void MapClickTest()
+        public void MapLoadingTest()
         {
-            String poup = "test.map";
-            String poup1 = "test1.map";
-            String poup2 = "test2.map";
-            String poup3 = "test3.map";
+            String poup = "test";
+            String poup1 = "test1";
+            String poup2 = "test2";
+            String poup3 = "test3";
             bool check = true;
             int testmapx = 0;
             int testmapy = 0;

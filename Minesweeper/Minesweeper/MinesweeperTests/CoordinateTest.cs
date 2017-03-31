@@ -14,7 +14,7 @@ namespace MinesweeperTests
         {
             //Ensure hashcode returns a value
             Coordinate c = new Coordinate(0, 0);
-            Assert.IsNotNull(c.GetHashCode();            
+            Assert.IsNotNull(c.GetHashCode());            
         }
 
         [TestMethod]

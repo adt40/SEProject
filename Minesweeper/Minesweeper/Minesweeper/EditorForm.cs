@@ -13,7 +13,7 @@ namespace Minesweeper
 {
     public partial class EditorForm : Form
     {
-        private int mapX, mapY;
+        public int mapX, mapY;
         private Map map { get; set; }
         private Button[,] buttons;
 

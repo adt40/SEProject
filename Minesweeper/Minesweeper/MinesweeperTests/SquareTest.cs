@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MinesweeperTests
 {
     [TestClass]
-    class SquareTest
+    public class SquareTest
     {
         [TestMethod]
         public void InstantiateTest()
