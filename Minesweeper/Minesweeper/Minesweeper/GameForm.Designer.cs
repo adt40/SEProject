@@ -1,4 +1,6 @@
-﻿namespace Minesweeper
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Minesweeper
 {
     partial class GameForm
     {
@@ -7,6 +9,7 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+        [ExcludeFromCodeCoverage]
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>

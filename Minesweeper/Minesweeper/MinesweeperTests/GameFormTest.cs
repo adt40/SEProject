@@ -52,41 +52,42 @@ namespace MinesweeperTests
             Assert.AreEqual(testbomb, testgame6.numBombs);
         }
 
-        [TestMethod]
-        public void MapLoadingTest()
-        {
-            String poup = "test.map";
-            String poup1 = "test1.map";
-            String poup2 = "test2.map";
-            String poup3 = "test3.map";
-            bool check = true;
-            int testmapx = 0;
-            int testmapy = 0;
-            int testbomb = 0;
-            //File Format
-            GameForm testgame1 = new GameForm(poup);
-            Assert.AreEqual(check, testgame1.checkFile);
+        //[TestMethod]
+        //public void MapLoadingTest()
+        //{
+        //    String poup = "test.map";
+        //    String poup1 = "test1.map";
+        //    String poup2 = "test2.map";
+        //    String poup3 = "test3.map";
+        //    bool check = true;
+        //    int testmapx = 0;
+        //    int testmapy = 0;
+        //    int testbomb = 0;
+        //    //File Format
+        //    GameForm testgame1 = new GameForm(poup);
+        //    Assert.AreEqual(check, testgame1.checkFile);
 
-            //File does not match read width/height
-            GameForm testgame2 = new GameForm(poup);
-            //File contains unknown chars
-            GameForm testgame3 = new GameForm(poup);
+        //    //File does not match read width/height
+        //    GameForm testgame2 = new GameForm(poup);
+        //    //File contains unknown chars
+        //    GameForm testgame3 = new GameForm(poup);
 
-            //Width = 0, height = 0
-            GameForm testgame4 = new GameForm(poup1);
-            Assert.AreEqual(testmapx, testgame1.mapX);
-            Assert.AreEqual(testmapy, testgame1.mapY);
-            //numBombs = 0
-            GameForm testgame5 = new GameForm(poup2);
-            Assert.AreEqual(testbomb, testgame1.numBombs);
-            //numBombs > 0
-            GameForm testgame6 = new GameForm(poup3);
-            testbomb = 1; //custom map poup3 will have 1 bomb
-            Assert.AreEqual(testbomb, testgame1.numBombs);
-            //A square has bomb
-            //A square does not have a bomb
-            //^these are both verification and can be done by clicking
-        }
+        //    //Width = 0, height = 0
+        //    GameForm testgame4 = new GameForm(poup1);
+        //    Assert.AreEqual(testmapx, testgame1.mapX);
+        //    Assert.AreEqual(testmapy, testgame1.mapY);
+        //    //numBombs = 0
+        //    GameForm testgame5 = new GameForm(poup2);
+        //    Assert.AreEqual(testbomb, testgame1.numBombs);
+        //    //numBombs > 0
+        //    GameForm testgame6 = new GameForm(poup3);
+        //    testbomb = 1; //custom map poup3 will have 1 bomb
+        //    Assert.AreEqual(testbomb, testgame1.numBombs);
+        //    //A square has bomb
+        //    //A square does not have a bomb
+        //    //^these are both verification and can be done by clicking
+        //}
+
         [TestMethod]
         public void MapClickedTest()
         {
@@ -94,7 +95,7 @@ namespace MinesweeperTests
             Button sender = new Button();
             testForm.Form1_Load(sender, null);
             Button noBomb = testForm.buttons[0, 0];
-            Button AdjNum = testForm.buttons[3, 0];
+            Button AdjNum = testForm.buttons[1, 4];
             Button withBomb = testForm.buttons[4, 0];
             //These calls will represent code coverage. All functionality from each call is tested in other methods
             testForm.MapClicked(noBomb, null);

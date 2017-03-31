@@ -35,21 +35,15 @@ namespace Minesweeper
         public GameForm(String filename)
         {
             String filetype = filename.Substring(filename.Length - 3);
-            if(filetype == "map")
-            {
-                map = new Map(filename);
-                mapX = map.width;
-                mapY = map.height;
-                numBombs = map.numBombs;
-            }
-            else
-            {
-                checkFile = false;
-            }
+            map = new Map(filename);
+            mapX = map.width;
+            mapY = map.height;
+            numBombs = map.numBombs;
 
             InitializeComponent();
 
         }
+
         [ExcludeFromCodeCoverage]
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -57,11 +51,13 @@ namespace Minesweeper
             game.Show();
             this.Hide();
         }
+
         [ExcludeFromCodeCoverage]
         private void menu1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
+
         [ExcludeFromCodeCoverage]
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -69,6 +65,7 @@ namespace Minesweeper
             menu.Show();
             this.Hide();
         }
+
         [ExcludeFromCodeCoverage]
         private void changeSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
