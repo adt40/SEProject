@@ -54,10 +54,10 @@ namespace MinesweeperTests
         [TestMethod]
         public void MapLoadingTest()
         {
-            String poup = "test";
-            String poup1 = "test1";
-            String poup2 = "test2";
-            String poup3 = "test3";
+            String poup = "test.map";
+            String poup1 = "test1.map";
+            String poup2 = "test2.map";
+            String poup3 = "test3.map";
             bool check = true;
             int testmapx = 0;
             int testmapy = 0;
@@ -88,9 +88,9 @@ namespace MinesweeperTests
         }
 
         [TestMethod]
-        public void RevealZerosTest()
+        public void RevealZerosTest() //to be removed (Functional Testing)
         {
-            //using a test map file to test each case
+           
             //test cases for Width = 0, height = 0
             GameForm testgame1 = new GameForm(0, 0, 0);
             //Width = 0, height > 0
