@@ -24,11 +24,11 @@ namespace MinesweeperTests
         {
             Map testMap = new Map("testmap.map");
             testMap.SetAdjBombVals();
-            String expectedLayout = "0001X\n" +
+            String expectedLayout = "0001B\n" +
                                     "01121\n" +
-                                    "01X10\n" +
+                                    "01B10\n" +
                                     "12110\n" +
-                                    "X1000\n";
+                                    "B1000\n";
             Assert.AreEqual(testMap.viewBombsAndNums(), expectedLayout);
             Assert.AreEqual(testMap.testNumBombs(), 3);
         }
