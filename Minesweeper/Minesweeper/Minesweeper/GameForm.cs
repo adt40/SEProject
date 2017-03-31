@@ -13,9 +13,11 @@ namespace Minesweeper
 {
     public partial class GameForm : Form
     {
-        private int mapX, mapY, numBombs;
+        //originally the below are private but I changed them for the unit test
+        public int mapX, mapY, numBombs;
         private Map map { get; set; }
-        private Button[,] buttons;
+        public Button[,] buttons;
+        public bool checkFile = true; //checks file for validity. We could use this boolean to return back to settings/load/whatever
         private bool winCondition = true;
         public GameForm(int x, int y, int bombs)
         {
@@ -31,10 +33,18 @@ namespace Minesweeper
 
         public GameForm(String filename)
         {
-            map = new Map(filename);
-            mapX = map.width;
-            mapY = map.height;
-            numBombs = map.numBombs;
+            String filetype = filename.Substring(filename.Length - 3);
+            if(filetype == "map")
+            {
+                map = new Map(filename);
+                mapX = map.width;
+                mapY = map.height;
+                numBombs = map.numBombs;
+            }
+            else
+            {
+                checkFile = false;
+            }
 
             InitializeComponent();
 
