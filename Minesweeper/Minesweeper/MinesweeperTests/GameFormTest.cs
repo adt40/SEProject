@@ -86,7 +86,30 @@ namespace MinesweeperTests
             //A square does not have a bomb
             //^these are both verification and can be done by clicking
         }
+        [TestMethod]
+        public void MapClickedTest()
+        {
+            bool testBomb = true;
+            //testing for if there is a bomb
+            GameForm testgame = new GameForm(1, 1, 1);
+            testgame.MapClicked(testgame.buttons[0, 0], null);
+            Assert.AreEqual(testBomb, testgame.bomb);
+            //testing for if there is no bomb
+            testBomb = false;
+            GameForm testgame1 = new GameForm(1, 1, 0);
+            testgame.MapClicked(testgame.buttons[0, 0], null);
+            Assert.AreEqual(testBomb, testgame.bomb);
+            
 
+
+
+
+        }
+        [TestMethod]
+        public void MapRightClicked()
+        {
+
+        }
         [TestMethod]
         public void RevealZerosTest() //to be removed (Functional Testing)
         {

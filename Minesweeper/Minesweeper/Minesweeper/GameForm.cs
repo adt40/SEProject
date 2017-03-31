@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Minesweeper
 {
@@ -15,7 +16,8 @@ namespace Minesweeper
     {
         //originally the below are private but I changed them for the unit test
         public int mapX, mapY, numBombs;
-        private Map map { get; set; }
+        public Map map { get; set; }
+        public bool bomb = false;
         public Button[,] buttons;
         public bool checkFile = true; //checks file for validity. We could use this boolean to return back to settings/load/whatever
         private bool winCondition = true;
@@ -49,26 +51,26 @@ namespace Minesweeper
             InitializeComponent();
 
         }
-
+        [ExcludeFromCodeCoverage]
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             GameForm game = new GameForm(mapX, mapY, numBombs);
             game.Show();
             this.Hide();
         }
-
+        [ExcludeFromCodeCoverage]
         private void menu1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
-
+        [ExcludeFromCodeCoverage]
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MainForm menu = new MainForm();
             menu.Show();
             this.Hide();
         }
-
+        [ExcludeFromCodeCoverage]
         private void changeSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Simulating opening from main menu, but this could be its own thing if need be
@@ -124,7 +126,7 @@ namespace Minesweeper
             }
         }
 
-        private void MapClicked(object sender, EventArgs e)
+        public void MapClicked(object sender, EventArgs e)
         {
             Coordinate buttonCoordinates = findButtonCoordinates(sender as Button);
             Button button = buttons[buttonCoordinates.x, buttonCoordinates.y];
@@ -134,6 +136,7 @@ namespace Minesweeper
             square.hasClicked = true;
             if (square.isBomb)
             {
+                bomb = true;
                 loseAt(button);
             }
             else
