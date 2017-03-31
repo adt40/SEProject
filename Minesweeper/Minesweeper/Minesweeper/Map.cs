@@ -148,5 +148,35 @@ namespace Minesweeper
 
             file.Close();
         }
+
+        public String viewBombsAndNums()
+        {
+            String result = "";
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    Coordinate toTest = new Coordinate(i, j);
+                    if (squares[toTest].isBomb) result += "B";
+                    else result += squares[toTest].numAdjBombs;
+                }
+                result += "\n";
+            }
+            return result;
+        }
+
+        public int testNumBombs()
+        {
+            int result = 0;
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    Coordinate toTest = new Coordinate(i, j);
+                    if (squares[toTest].isBomb) result++;
+                }
+            }
+            return result;
+        }
     }
 }
