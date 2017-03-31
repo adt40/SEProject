@@ -8,7 +8,7 @@ using System.Diagnostics;
 
 namespace Minesweeper
 {
-    class Map
+    public class Map
     {
         public int width { get; set; }
         public int height { get; set; }
@@ -68,7 +68,7 @@ namespace Minesweeper
                 for (int j = 0; j < height; j++)
                 {
                     Coordinate c = new Coordinate(i, j);
-                    squares.Add(c, new Square(c, false, this));
+                    squares.Add(c, new Square(c, false));
                 }
             }
             int k = 0;
@@ -106,12 +106,12 @@ namespace Minesweeper
                     Coordinate c = new Coordinate(x, y);
                     if (line.ElementAt(x) == 'X')
                     {
-                        squares.Add(c, new Square(c, true, this));
+                        squares.Add(c, new Square(c, true));
                         numBombs++;
                     }
                     else
                     {
-                        squares.Add(c, new Square(c, false, this));
+                        squares.Add(c, new Square(c, false));
                     }
                 }
             }

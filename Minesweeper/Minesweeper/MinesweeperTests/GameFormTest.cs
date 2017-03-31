@@ -1,14 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Minesweeper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MinesweeperUnitTest
+namespace MinesweeperTests
 {
     [TestClass]
-    public class UnitTest1
+    class GameFormTest
     {
         [TestMethod]
-        public void TestGameFormMakeButton()
+        public void FormLoadTest()
         {
             int testmapx = 0;
             int testmapy = 0;
@@ -17,7 +21,7 @@ namespace MinesweeperUnitTest
             GameForm testgame1 = new GameForm(0, 0, 0);
             Assert.AreEqual(testmapx, testgame1.mapX);
             Assert.AreEqual(testmapy, testgame1.mapY);
-            
+
             //mapx = 0, mapy > 0
             GameForm testgame2 = new GameForm(0, 1, 0);
             testmapy = 1;
@@ -46,8 +50,9 @@ namespace MinesweeperUnitTest
             testbomb = 1;
             Assert.AreEqual(testbomb, testgame1.numBombs);
         }
+
         [TestMethod]
-        public void TestGameFormMapClick()
+        public void MapClickTest()
         {
             String poup = "test.map";
             String poup1 = "test1.map";
@@ -81,9 +86,10 @@ namespace MinesweeperUnitTest
             //A square does not have a bomb
             //^these are both verification and can be done by clicking
         }
+
         [TestMethod]
-        public void TestGameRevealZero()
-        {   
+        public void RevealZerosTest()
+        {
             //using a test map file to test each case
             //test cases for Width = 0, height = 0
             GameForm testgame1 = new GameForm(0, 0, 0);
