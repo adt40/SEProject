@@ -110,7 +110,7 @@ namespace Minesweeper
             map.SetAdjBombVals();
         }
 
-        private void MapRightClicked(object sender, MouseEventArgs e)
+        public void MapRightClicked(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Right) return; //If it's not a right click, we don't care
             Coordinate buttonCoordinates = findButtonCoordinates(sender as Button);

@@ -156,5 +156,21 @@ namespace MinesweeperTests
                 Assert.AreEqual(b.Text, "B");
             }
         }
+
+        [TestMethod]
+        public void testMapRightClicked()
+        {
+            GameForm testForm = new GameForm("testmap.map");
+            Button sender = new Button();
+            testForm.Form1_Load(sender, null);
+            MouseEventArgs eLeft = new MouseEventArgs(MouseButtons.Left, 1, 0, 0, 0);
+            MouseEventArgs eRight = new MouseEventArgs(MouseButtons.Right, 1, 0, 0, 0);
+            Button rightClicked = testForm.buttons[0, 0];
+            testForm.MapRightClicked(rightClicked, eLeft);
+            testForm.MapRightClicked(rightClicked, eRight);
+            Assert.AreEqual(rightClicked.Text, "F");
+            testForm.MapRightClicked(rightClicked, eRight);
+            Assert.AreEqual(rightClicked.Text, "");
+        }
     }
 }
