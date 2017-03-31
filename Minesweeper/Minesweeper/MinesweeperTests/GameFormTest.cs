@@ -119,5 +119,19 @@ namespace MinesweeperTests
             Assert.AreEqual(found, expected);
             Assert.IsNull(notFound);
         }
+
+        [TestMethod]
+        public void testLoseAt()
+        {
+            GameForm testForm = new GameForm("testmap.map");
+            Button sender = new Button();
+            testForm.Form1_Load(sender, null);
+            testForm.loseAt(testForm.buttons[4, 0]);
+            Button[] bombs = { testForm.buttons[4, 0], testForm.buttons[2, 2], testForm.buttons[0, 4] };
+            foreach(Button b in bombs)
+            {
+                Assert.AreEqual(b.Text, "B");
+            }
+        }
     }
 }

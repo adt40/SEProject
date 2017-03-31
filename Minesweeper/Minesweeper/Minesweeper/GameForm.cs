@@ -196,7 +196,7 @@ namespace Minesweeper
             return null;
         }
 
-        private void loseAt(Button button)
+        public void loseAt(Button button)
         {
             //If you lose like a heckin dummy
             button.Text = "B";
