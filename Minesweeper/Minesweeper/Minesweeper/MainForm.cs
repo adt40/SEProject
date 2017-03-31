@@ -17,7 +17,7 @@ namespace Minesweeper
             InitializeComponent();
         }
 
-        private void NewGameButton_Click(object sender, EventArgs e)
+        public void NewGameButton_Click(object sender, EventArgs e)
         {
             SettingsForm settings = new SettingsForm((Button)sender);
             settings.Show();

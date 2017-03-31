@@ -17,7 +17,9 @@ namespace Minesweeper
         //originally the below are private but I changed them for the unit test
         public int mapX, mapY, numBombs;
         public Map map { get; set; }
+
         public bool bomb = false;
+
         public Button[,] buttons;
         public bool checkFile = true; //checks file for validity. We could use this boolean to return back to settings/load/whatever
         private bool winCondition = true;
@@ -82,7 +84,7 @@ namespace Minesweeper
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public void Form1_Load(object sender, EventArgs e)
         {
             buttons = new Button[mapX, mapY];
 
@@ -159,7 +161,7 @@ namespace Minesweeper
             }
         }
 
-        private void revealZeros(int x, int y)
+        public void revealZeros(int x, int y)
         {
             for (int i = -1; i <= 1; i++)
             {
@@ -187,7 +189,7 @@ namespace Minesweeper
             }
         }
 
-        private Coordinate findButtonCoordinates(Button sender)
+        public Coordinate findButtonCoordinates(Button sender)
         {
             for (int x = 0; x < buttons.GetLength(0); x++)
             {
@@ -199,7 +201,7 @@ namespace Minesweeper
             return null;
         }
 
-        private void loseAt(Button button)
+        public void loseAt(Button button)
         {
             //If you lose like a heckin dummy
             button.Text = "B";

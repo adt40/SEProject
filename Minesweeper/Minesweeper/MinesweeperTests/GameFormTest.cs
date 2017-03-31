@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Minesweeper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -111,25 +112,49 @@ namespace MinesweeperTests
 
         }
         [TestMethod]
-        public void RevealZerosTest() //to be removed (Functional Testing)
+        public void RevealZerosTest()
         {
+            GameForm testForm = new GameForm("testmap.map");
+            Button sender = new Button();
+            testForm.Form1_Load(sender, null);
+            testForm.revealZeros(2, 4);
+            Map map = testForm.map;
+            Coordinate[] clickedCoordinates = {new Coordinate(3, 1), new Coordinate(4, 1), new Coordinate(3, 2),
+                                             new Coordinate(4, 2), new Coordinate(1, 3), new Coordinate(2, 3),
+                                             new Coordinate(3, 3), new Coordinate(4, 3), new Coordinate(1, 4),
+                                             new Coordinate(2, 4), new Coordinate(3, 4), new Coordinate(4, 4)};
+            foreach(Coordinate c in clickedCoordinates)
+            {
+                Assert.IsTrue(map.squares[c].hasClicked);
+            }
            
-            //test cases for Width = 0, height = 0
-            GameForm testgame1 = new GameForm(0, 0, 0);
-            //Width = 0, height > 0
-            GameForm testgame2 = new GameForm(0, 1, 0);
-            //Width > 0, height = 0
-            GameForm testgame3 = new GameForm(1, 0, 0);
-            //Width > 0, height > 0
-            GameForm testgame4 = new GameForm(1, 1, 0);
-            //numBombs = 0
-            GameForm testgame5 = new GameForm(5, 5, 0);
-            //numBombs > 0
-            GameForm testgame6 = new GameForm(5, 5, 1);
-            //A square has bomb
-            GameForm testgame7 = new GameForm(0, 0, 0);
-            //A square does not have a bomb
-            GameForm testgame8 = new GameForm(0, 0, 0);
+        }
+
+        [TestMethod]
+        public void testFindButtonCoordinates()
+        {
+            GameForm testForm = new GameForm("testmap.map");
+            Button sender = new Button();
+            testForm.Form1_Load(sender, null);
+            Coordinate found = testForm.findButtonCoordinates(testForm.buttons[1, 4]);
+            Coordinate notFound = testForm.findButtonCoordinates(null);
+            Coordinate expected = new Coordinate(1, 4);
+            Assert.AreEqual(found, expected);
+            Assert.IsNull(notFound);
+        }
+
+        [TestMethod]
+        public void testLoseAt()
+        {
+            GameForm testForm = new GameForm("testmap.map");
+            Button sender = new Button();
+            testForm.Form1_Load(sender, null);
+            testForm.loseAt(testForm.buttons[4, 0]);
+            Button[] bombs = { testForm.buttons[4, 0], testForm.buttons[2, 2], testForm.buttons[0, 4] };
+            foreach(Button b in bombs)
+            {
+                Assert.AreEqual(b.Text, "B");
+            }
         }
     }
 }

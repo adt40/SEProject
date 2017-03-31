@@ -17,6 +17,9 @@ namespace MinesweeperTests
             //No methods used in square, just ensure square instantiates
             Square square = new Square(new Coordinate(0, 0), false);
             Assert.IsTrue(true);
+            Assert.AreEqual(new Coordinate(0, 0), square.pos);
+            Assert.IsFalse(square.hasClicked);
+            Assert.IsFalse(square.hasFlag);
         }
     }
 }
