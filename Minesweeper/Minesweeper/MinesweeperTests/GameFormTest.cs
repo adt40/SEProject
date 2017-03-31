@@ -90,27 +90,19 @@ namespace MinesweeperTests
         [TestMethod]
         public void MapClickedTest()
         {
-            bool testBomb = true;
-            //testing for if there is a bomb
-            GameForm testgame = new GameForm(1, 1, 1);
-            testgame.MapClicked(testgame.buttons[0, 0], null);
-            Assert.AreEqual(testBomb, testgame.bomb);
-            //testing for if there is no bomb
-            testBomb = false;
-            GameForm testgame1 = new GameForm(1, 1, 0);
-            testgame.MapClicked(testgame.buttons[0, 0], null);
-            Assert.AreEqual(testBomb, testgame.bomb);
-            
-
-
-
-
+            GameForm testForm = new GameForm("testmap.map");
+            Button sender = new Button();
+            testForm.Form1_Load(sender, null);
+            Button noBomb = testForm.buttons[0, 0];
+            Button AdjNum = testForm.buttons[3, 0];
+            Button withBomb = testForm.buttons[4, 0];
+            //These calls will represent code coverage. All functionality from each call is tested in other methods
+            testForm.MapClicked(noBomb, null);
+            testForm.MapClicked(noBomb, null);
+            testForm.MapClicked(AdjNum, null);
+            testForm.MapClicked(withBomb, null);
         }
-        [TestMethod]
-        public void MapRightClicked()
-        {
 
-        }
         [TestMethod]
         public void RevealZerosTest()
         {

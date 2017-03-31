@@ -17,9 +17,6 @@ namespace Minesweeper
         //originally the below are private but I changed them for the unit test
         public int mapX, mapY, numBombs;
         public Map map { get; set; }
-
-        public bool bomb = false;
-
         public Button[,] buttons;
         public bool checkFile = true; //checks file for validity. We could use this boolean to return back to settings/load/whatever
         private bool winCondition = true;
@@ -138,7 +135,6 @@ namespace Minesweeper
             square.hasClicked = true;
             if (square.isBomb)
             {
-                bomb = true;
                 loseAt(button);
             }
             else
