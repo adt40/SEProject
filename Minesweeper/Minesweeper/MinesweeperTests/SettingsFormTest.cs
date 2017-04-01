@@ -48,10 +48,10 @@ namespace MinesweeperTests
             }
             foreach (Control c in settingsForm.Controls)
             {
-                if (c.GetType() == typeof(HHScrollBar))
+                if (c.GetType() == typeof(HScrollBar))
                 {
                     HScrollBar sbar = (HScrollBar)c;
-                    Assert.Equals(sbar.Value, 10);
+                    Assert.AreEqual(sbar.Value, 10);
                 }
             }
             //Too low values
@@ -68,7 +68,7 @@ namespace MinesweeperTests
                 if (c.GetType() == typeof(HScrollBar))
                 {
                     HScrollBar sbar = (HScrollBar)c;
-                    Assert.Equals(sbar.Value, 10); //value shouldn't have changed
+                    Assert.AreEqual(sbar.Value, sbar.Minimum); //value shouldn't have changed
                 }
             }
 
@@ -86,7 +86,7 @@ namespace MinesweeperTests
                 if (c.GetType() == typeof(HScrollBar))
                 {
                     HScrollBar sbar = (HScrollBar)c;
-                    Assert.Equals(sbar.Value, 10); //value shouldn't have changed
+                    Assert.AreEqual(sbar.Value, sbar.Maximum); //value shouldn't have changed
                 }
             }
 
@@ -104,7 +104,7 @@ namespace MinesweeperTests
                 if (c.GetType() == typeof(HScrollBar))
                 {
                     HScrollBar sbar = (HScrollBar)c;
-                    Assert.Equals(sbar.Value, 10); //values shouldn't have changed
+                    Assert.AreEqual(sbar.Value, 10); //values shouldn't have changed
                 }
             }
 
