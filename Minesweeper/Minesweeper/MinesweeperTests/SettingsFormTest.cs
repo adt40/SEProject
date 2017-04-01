@@ -48,9 +48,9 @@ namespace MinesweeperTests
             }
             foreach (Control c in settingsForm.Controls)
             {
-                if (c.GetType() == typeof(ScrollBar))
+                if (c.GetType() == typeof(HHScrollBar))
                 {
-                    ScrollBar sbar = (ScrollBar)c;
+                    HScrollBar sbar = (HScrollBar)c;
                     Assert.Equals(sbar.Value, 10);
                 }
             }
@@ -65,9 +65,9 @@ namespace MinesweeperTests
             }
             foreach (Control c in settingsForm.Controls)
             {
-                if (c.GetType() == typeof(ScrollBar))
+                if (c.GetType() == typeof(HScrollBar))
                 {
-                    ScrollBar sbar = (ScrollBar)c;
+                    HScrollBar sbar = (HScrollBar)c;
                     Assert.Equals(sbar.Value, 10); //value shouldn't have changed
                 }
             }
@@ -83,9 +83,9 @@ namespace MinesweeperTests
             }
             foreach (Control c in settingsForm.Controls)
             {
-                if (c.GetType() == typeof(ScrollBar))
+                if (c.GetType() == typeof(HScrollBar))
                 {
-                    ScrollBar sbar = (ScrollBar)c;
+                    HScrollBar sbar = (HScrollBar)c;
                     Assert.Equals(sbar.Value, 10); //value shouldn't have changed
                 }
             }
@@ -101,9 +101,9 @@ namespace MinesweeperTests
             }
             foreach (Control c in settingsForm.Controls)
             {
-                if (c.GetType() == typeof(ScrollBar))
+                if (c.GetType() == typeof(HScrollBar))
                 {
-                    ScrollBar sbar = (ScrollBar)c;
+                    HScrollBar sbar = (HScrollBar)c;
                     Assert.Equals(sbar.Value, 10); //values shouldn't have changed
                 }
             }
