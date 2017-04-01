@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Minesweeper
 {
@@ -77,18 +78,21 @@ namespace Minesweeper
             }
         }
 
+        [ExcludeFromCodeCoverage]
         private void xScrollBar_Scroll_1(object sender, ScrollEventArgs e)
         {
             xText.Text = xScrollBar.Value.ToString();
             UpdateBombScroll();
         }
 
+        [ExcludeFromCodeCoverage]
         private void yScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             yText.Text = yScrollBar.Value.ToString();
             UpdateBombScroll();
         }
 
+        [ExcludeFromCodeCoverage]
         private void bombsScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             bombsText.Text = bombsScrollBar.Value.ToString();
