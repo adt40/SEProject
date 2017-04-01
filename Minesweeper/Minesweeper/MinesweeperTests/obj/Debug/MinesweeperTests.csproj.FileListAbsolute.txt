@@ -16,3 +16,7 @@ C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\De
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\Minesweeper.exe
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\Minesweeper.pdb
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\Minesweeper.exe.config
+C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\MinesweeperTests.dll
+C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\MinesweeperTests.pdb
+C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\Minesweeper.exe
+C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\Minesweeper.pdb

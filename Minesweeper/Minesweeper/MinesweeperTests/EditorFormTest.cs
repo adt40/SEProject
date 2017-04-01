@@ -49,11 +49,16 @@ namespace MinesweeperTests
             bool bomb = true;
             Coordinate checker = new Coordinate(0, 0);
             EditorForm testEditor1 = new EditorForm(5, 5);
+            Button sender = new Button();
+            testEditor1.Form3_Load(sender, null);
+
             testEditor1.MapClicked(testEditor1.buttons[0, 0], null);
+
             Assert.AreEqual(checker, testEditor1.check);
             Assert.AreEqual(bomb, testEditor1.map.squares[checker].isBomb);
             //check a filled space can be clicked and now not a bomb
             testEditor1.MapClicked(testEditor1.buttons[0, 0], null);
+            bomb = false;
             Assert.AreEqual(checker, testEditor1.check);
             Assert.AreEqual(bomb, testEditor1.map.squares[checker].isBomb);
         }
@@ -64,6 +69,8 @@ namespace MinesweeperTests
             String neighbor = "1";
             Coordinate checker = new Coordinate(0, 0);
             EditorForm testEditor1 = new EditorForm(5, 5);
+            Button sender = new Button();
+            testEditor1.Form3_Load(sender, null);
             testEditor1.map.squares[checker].isBomb = !testEditor1.map.squares[checker].isBomb;
             testEditor1.updateAdj();
             //checking to see if bombs are there after "click"

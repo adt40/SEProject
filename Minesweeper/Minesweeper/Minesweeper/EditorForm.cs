@@ -27,7 +27,7 @@ namespace Minesweeper
             InitializeComponent();
         }
 
-        private void Form3_Load(object sender, EventArgs e)
+        public void Form3_Load(object sender, EventArgs e)
         {
             buttons = new Button[mapX, mapY];
             map = new Map(mapX, mapY, 0);
