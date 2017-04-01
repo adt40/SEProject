@@ -27,9 +27,72 @@ namespace MinesweeperTests
             Assert.IsTrue(true);
         }
 
+        [TestMethod]
+        public void button1ClickTest()
+        {
+            Button NewGameButton = new Button();
+            NewGameButton.Name = "NewGameButton";
+            SettingsForm newGame = new SettingsForm(NewGameButton);
+            newGame.button1_Click(NewGameButton, null);
+            Button CustomButton = new Button();
+            NewGameButton.Name = "CustomMapEditorButton";
+            SettingsForm editor = new SettingsForm(CustomButton);
+            newGame.button1_Click(CustomButton, null);
 
+            //code coverage
+        }
 
+        [TestMethod]
+        public void formLoadTest()
+        {
+            Button NewGameButton = new Button();
+            NewGameButton.Name = "NewGameButton";
+            SettingsForm newGame = new SettingsForm(NewGameButton);
+            newGame.Form4_Load(NewGameButton, null);
+            foreach (Control c in newGame.Controls)
+            {
+                if (c.GetType() == typeof(TextBox))
+                {
+                    TextBox text = (TextBox)c;
+                    text.Text = 10.ToString();
 
+                }
+            }
+            foreach (Control c in newGame.Controls)
+            {
+                if (c.GetType() == typeof(HScrollBar))
+                {
+                    HScrollBar sbar = (HScrollBar)c;
+                    Assert.AreEqual(sbar.Value, 10);
+                }
+            }
+            bool visible = true;
+            Assert.AreEqual(visible, newGame.visibility);
+
+            Button CustomButton = new Button();
+            CustomButton.Name = "CustomMapEditorButton";
+            SettingsForm CustomGame = new SettingsForm(CustomButton);
+            newGame.Form4_Load(CustomButton, null);
+            foreach (Control c in CustomGame.Controls)
+            {
+                if (c.GetType() == typeof(TextBox))
+                {
+                    TextBox text = (TextBox)c;
+                    text.Text = 10.ToString();
+
+                }
+            }
+            foreach (Control c in CustomGame.Controls)
+            {
+                if (c.GetType() == typeof(HScrollBar))
+                {
+                    HScrollBar sbar = (HScrollBar)c;
+                    Assert.AreEqual(sbar.Value, 10);
+                }
+            }
+            visible = false;
+            Assert.AreEqual(visible, CustomGame.visibility);
+        }
 
         [TestMethod]
         public void TextChangedTest()
