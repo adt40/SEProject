@@ -33,7 +33,11 @@ namespace MinesweeperTests
             Button NewGameButton = new Button();
             NewGameButton.Name = "NewGameButton";
             SettingsForm newGame = new SettingsForm(NewGameButton);
+
             newGame.button1_Click(NewGameButton, null);
+            SettingsForm newGame2 = new SettingsForm(NewGameButton);
+            newGame2.Controls["customText"].Text = "testmap.map";
+            newGame2.button1_Click(NewGameButton, null);
             Button CustomButton = new Button();
             NewGameButton.Name = "CustomMapEditorButton";
             SettingsForm editor = new SettingsForm(CustomButton);
@@ -72,7 +76,7 @@ namespace MinesweeperTests
             Button CustomButton = new Button();
             CustomButton.Name = "CustomMapEditorButton";
             SettingsForm CustomGame = new SettingsForm(CustomButton);
-            newGame.Form4_Load(CustomButton, null);
+            CustomGame.Form4_Load(CustomButton, null);
             foreach (Control c in CustomGame.Controls)
             {
                 if (c.GetType() == typeof(TextBox))
@@ -93,8 +97,6 @@ namespace MinesweeperTests
             visible = false;
             Assert.AreEqual(visible, CustomGame.visibility);
         }
-
-
 
         [TestMethod]
         public void TextChangedTest()

@@ -1,5 +1,7 @@
-﻿namespace Minesweeper
+﻿using System.Diagnostics.CodeAnalysis;
+namespace Minesweeper
 {
+    [ExcludeFromCodeCoverage]
     partial class SettingsForm
     {
         /// <summary>
