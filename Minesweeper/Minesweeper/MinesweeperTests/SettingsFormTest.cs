@@ -60,7 +60,7 @@ namespace MinesweeperTests
                 if (c.GetType() == typeof(TextBox))
                 {
                     TextBox text = (TextBox)c;
-                    text.Text = 1.ToString();
+                    text.Text = 0.ToString();
                 }
             }
             foreach (Control c in settingsForm.Controls)
@@ -73,14 +73,9 @@ namespace MinesweeperTests
             }
 
             //Too high values
-            foreach (Control c in settingsForm.Controls)
-            {
-                if (c.GetType() == typeof(TextBox))
-                {
-                    TextBox text = (TextBox)c;
-                    text.Text = 100.ToString();
-                }
-            }
+            settingsForm.Controls["xText"].Text = 1000.ToString();
+            settingsForm.Controls["yText"].Text = 1000.ToString();
+            settingsForm.Controls["bombsText"].Text = 1000.ToString();
             foreach (Control c in settingsForm.Controls)
             {
                 if (c.GetType() == typeof(HScrollBar))
@@ -104,7 +99,7 @@ namespace MinesweeperTests
                 if (c.GetType() == typeof(HScrollBar))
                 {
                     HScrollBar sbar = (HScrollBar)c;
-                    Assert.AreEqual(sbar.Value, 10); //values shouldn't have changed
+                    Assert.AreEqual(sbar.Value, sbar.Minimum); //values shouldn't have changed
                 }
             }
 

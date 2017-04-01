@@ -136,6 +136,12 @@ namespace Minesweeper
                     xScrollBar.Value = xVal;
                 }
             }
+            else
+            {
+                xScrollBar.Value = xScrollBar.Minimum;
+                xText.Text = xScrollBar.Minimum.ToString();
+                UpdateBombScroll();
+            }
         }
 
         private void yText_TextChanged_1(object sender, EventArgs e)
@@ -159,11 +165,19 @@ namespace Minesweeper
                 {
                     yScrollBar.Value = yVal;
                 }
+
             }
+            else
+            {
+                yScrollBar.Value = yScrollBar.Minimum;
+                yText.Text = yScrollBar.Minimum.ToString();
+                UpdateBombScroll();
+            }
+
         }
 
         private void bombsText_TextChanged_1(object sender, EventArgs e)
-        {
+       {
             if (IsDigitsOnly(bombsText.Text))
             {
                 int bombsVal = int.Parse(bombsText.Text);
@@ -181,6 +195,11 @@ namespace Minesweeper
                 {
                     bombsScrollBar.Value = bombsVal;
                 }
+            }
+            else
+            {
+                bombsScrollBar.Value = bombsScrollBar.Minimum;
+                bombsText.Text = bombsScrollBar.Minimum.ToString();
             }
         }
 
