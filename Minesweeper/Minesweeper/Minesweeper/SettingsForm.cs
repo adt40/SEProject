@@ -16,7 +16,6 @@ namespace Minesweeper
     public partial class SettingsForm : Form
     {
         private Button buttonSender;
-        public bool visibility;
         //public String file;
         public SettingsForm(Button sender)
         {
@@ -24,7 +23,7 @@ namespace Minesweeper
             InitializeComponent();
         }
 
-        public void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
 
@@ -48,7 +47,7 @@ namespace Minesweeper
             }
         }
         
-        public void Form4_Load(object sender, EventArgs e)
+        private void Form4_Load(object sender, EventArgs e)
         {
             //Create the correct settings based on what button was pressed to open settings
             if (buttonSender.Name == "NewGameButton")
@@ -57,7 +56,7 @@ namespace Minesweeper
                 yText.Text = yScrollBar.Value.ToString();
                 bombsText.Text = bombsScrollBar.Value.ToString();
                 UpdateBombScroll();
-                visibility = true;
+
                 bombLabel.Visible = true;
                 bombsScrollBar.Visible = true;
                 bombsText.Visible = true;
@@ -69,7 +68,7 @@ namespace Minesweeper
             {
                 xText.Text = xScrollBar.Value.ToString();
                 yText.Text = yScrollBar.Value.ToString();
-                visibility = false;
+
                 bombLabel.Visible = false;
                 bombsScrollBar.Visible = false;
                 bombsText.Visible = false;
