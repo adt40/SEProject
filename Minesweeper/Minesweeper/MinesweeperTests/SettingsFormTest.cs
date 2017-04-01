@@ -104,5 +104,30 @@ namespace MinesweeperTests
             }
 
         }
+
+        [TestMethod]
+        public void testIsDigitsOnly()
+        {
+            Button b = new Button();
+            b.Name = "NewGameButton";
+            SettingsForm settingsForm = new SettingsForm(b);
+            String empty = "";
+            String belowZero = "!!!";
+            String aboveNine = "ABC";
+            String digits = "123";
+            Assert.IsFalse(settingsForm.IsDigitsOnly(empty));
+            Assert.IsFalse(settingsForm.IsDigitsOnly(belowZero));
+            Assert.IsFalse(settingsForm.IsDigitsOnly(aboveNine));
+            Assert.IsTrue(settingsForm.IsDigitsOnly(digits));
+        }
+
+        [TestMethod]
+        public void testButton2Click()
+        {
+            Button b = new Button();
+            b.Name = "NewGameButton";
+            SettingsForm settingsForm = new SettingsForm(b);
+            settingsForm.button2_Click(null, null); //This will open an "Open File" dialog that will be tested functionally
+        }
     }
 }

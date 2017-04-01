@@ -103,7 +103,7 @@ namespace Minesweeper
             bombsScrollBar.Maximum = 4 * (int)Math.Sqrt(xScrollBar.Value * yScrollBar.Value);
         }
 
-        private bool IsDigitsOnly(string str)
+        public bool IsDigitsOnly(string str)
         {
             if (str.Length == 0)
             {
@@ -207,7 +207,7 @@ namespace Minesweeper
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Filter = "MAP Files|*.map";
@@ -220,6 +220,7 @@ namespace Minesweeper
             }
         }
 
+        [ExcludeFromCodeCoverage]
         private void customText_TextChanged(object sender, EventArgs e)
         {
 
