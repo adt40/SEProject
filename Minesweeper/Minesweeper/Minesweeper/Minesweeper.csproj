@@ -71,6 +71,12 @@
     <Compile Include="EditorForm.Designer.cs">
       <DependentUpon>EditorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MapBrowserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapBrowserForm.Designer.cs">
+      <DependentUpon>MapBrowserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NetworkForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     <EmbeddedResource Include="EditorForm.resx">
       <DependentUpon>EditorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MapBrowserForm.resx">
+      <DependentUpon>MapBrowserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NetworkForm.resx">
       <DependentUpon>NetworkForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,17 +135,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="Microsoft.Office.Core">
-      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>7</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

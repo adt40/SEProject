@@ -32,5 +32,12 @@ namespace Minesweeper
             settings.Show();
             this.Hide();
         }
+
+        private void browserButton_Click(object sender, EventArgs e)
+        {
+            MapBrowserForm browser = new MapBrowserForm();
+            browser.Show();
+            this.Hide();
+        }
     }
 }
