@@ -120,6 +120,32 @@ namespace Minesweeper
                 square.hasFlag = false;
                 button.Text = "";
             }
+            if (CheckIfWin())
+            {
+                Win();
+            }
+        }
+
+        private void Win()
+        {
+            WinForm win = new WinForm(this);
+            win.Show();
+        }
+
+        public bool CheckIfWin()
+        {
+            for (int x = 0; x < mapX; x++)
+            {
+                for (int y = 0; y < mapY; y++)
+                {
+                    Coordinate c = new Coordinate(x, y);
+                    if (map.squares[c].isBomb && !map.squares[c].hasFlag)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
 
         public void MapClicked(object sender, EventArgs e)
@@ -214,8 +240,8 @@ namespace Minesweeper
                 }
             }
             winCondition = false;
-            LoseForm youLose = new LoseForm();
-            youLose.ShowDialog();
+            LoseForm youLose = new LoseForm(this);
+            youLose.Show();
         }
     }
 }

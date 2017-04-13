@@ -7,25 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Minesweeper
 {
-    [ExcludeFromCodeCoverage]
-    public partial class LoseForm : Form
+    public partial class WinForm : Form
     {
         GameForm game;
-
-        public LoseForm(GameForm game)
-        {
+        public WinForm(GameForm game) {
             this.game = game;
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void WinForm_Load(object sender, EventArgs e)
         {
-            
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)

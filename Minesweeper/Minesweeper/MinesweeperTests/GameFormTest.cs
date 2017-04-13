@@ -165,5 +165,26 @@ namespace MinesweeperTests
             testForm.MapRightClicked(rightClicked, eRight);
             Assert.AreEqual(rightClicked.Text, "");
         }
+
+        [TestMethod]
+        public void CheckIfWinTest()
+        {
+            GameForm g = new GameForm(5, 5, 1);
+            Assert.IsFalse(g.CheckIfWin());
+
+            for (int x = 0; x < 5; x++)
+            {
+                for (int y = 0; y < 5; y++)
+                {
+                    Coordinate c = new Coordinate(x, y);
+                    if (g.map.squares[c].isBomb)
+                    {
+                        g.map.squares[c].hasFlag = true;
+                    }
+                }
+            }
+
+            Assert.IsTrue(g.CheckIfWin());
+        }
     }
 }

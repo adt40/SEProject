@@ -127,13 +127,13 @@ namespace Minesweeper
                 if (xVal > xScrollBar.Maximum)
                 {
                     xScrollBar.Value = xScrollBar.Maximum;
-                    xText.Text = xScrollBar.Maximum.ToString();
+                    //xText.Text = xScrollBar.Maximum.ToString();
                     UpdateBombScroll();
                 }
                 else if (xVal < xScrollBar.Minimum)
                 {
                     xScrollBar.Value = xScrollBar.Minimum;
-                    xText.Text = xScrollBar.Minimum.ToString();
+                    //xText.Text = xScrollBar.Minimum.ToString();
                     UpdateBombScroll();
                 }
                 else
@@ -144,7 +144,7 @@ namespace Minesweeper
             else
             {
                 xScrollBar.Value = xScrollBar.Minimum;
-                xText.Text = xScrollBar.Minimum.ToString();
+                //xText.Text = xScrollBar.Minimum.ToString();
                 UpdateBombScroll();
             }
         }
@@ -157,13 +157,13 @@ namespace Minesweeper
                 if (yVal > yScrollBar.Maximum)
                 {
                     yScrollBar.Value = yScrollBar.Maximum;
-                    yText.Text = yScrollBar.Maximum.ToString();
+                    //yText.Text = yScrollBar.Maximum.ToString();
                     UpdateBombScroll();
                 }
                 else if (yVal < yScrollBar.Minimum)
                 {
                     yScrollBar.Value = yScrollBar.Minimum;
-                    yText.Text = yScrollBar.Minimum.ToString();
+                    //yText.Text = yScrollBar.Minimum.ToString();
                     UpdateBombScroll();
                 }
                 else
@@ -175,7 +175,7 @@ namespace Minesweeper
             else
             {
                 yScrollBar.Value = yScrollBar.Minimum;
-                yText.Text = yScrollBar.Minimum.ToString();
+                //yText.Text = yScrollBar.Minimum.ToString();
                 UpdateBombScroll();
             }
 
@@ -189,12 +189,12 @@ namespace Minesweeper
                 if (bombsVal > bombsScrollBar.Maximum)
                 {
                     bombsScrollBar.Value = bombsScrollBar.Maximum;
-                    bombsText.Text = bombsScrollBar.Maximum.ToString();
+                    //bombsText.Text = bombsScrollBar.Maximum.ToString();
                 }
                 else if (bombsVal < bombsScrollBar.Minimum)
                 {
                     bombsScrollBar.Value = bombsScrollBar.Minimum;
-                    bombsText.Text = bombsScrollBar.Minimum.ToString();
+                    //bombsText.Text = bombsScrollBar.Minimum.ToString();
                 }
                 else
                 {
@@ -204,7 +204,7 @@ namespace Minesweeper
             else
             {
                 bombsScrollBar.Value = bombsScrollBar.Minimum;
-                bombsText.Text = bombsScrollBar.Minimum.ToString();
+                //bombsText.Text = bombsScrollBar.Minimum.ToString();
             }
         }
 

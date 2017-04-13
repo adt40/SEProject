@@ -20,3 +20,4 @@ C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Mines
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\MinesweeperTests.pdb
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\Minesweeper.exe
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\Minesweeper.pdb
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\Minesweeper.exe.config

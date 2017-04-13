@@ -1,6 +1,6 @@
 ﻿namespace Minesweeper
 {
-    partial class LoseForm
+    partial class WinForm
     {
         /// <summary>
         /// Required designer variable.
@@ -35,36 +35,35 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 21);
+            this.label1.Location = new System.Drawing.Point(22, 48);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(279, 51);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "HECKIN\' HECK\r\n\r\nYOU HECKIN\' LOSE M80 UR THE WORST\r\n";
+            this.label1.Size = new System.Drawing.Size(325, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = " AW HECKN\' YES U DID IT M80 I KNEW U COULD";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(119, 84);
+            this.button1.Location = new System.Drawing.Point(115, 77);
             this.button1.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 47);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "LMAO GET OUTTA HERE";
+            this.button1.Size = new System.Drawing.Size(133, 60);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "BASK IN THE GLORY OF THE MAIN MENU";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // LoseForm
+            // WinForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 156);
+            this.ClientSize = new System.Drawing.Size(378, 181);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "LoseForm";
-            this.Text = "LoseForm";
+            this.Name = "WinForm";
+            this.Text = "WinForm";
+            this.Load += new System.EventHandler(this.WinForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

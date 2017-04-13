@@ -56,6 +56,7 @@
     <Compile Include="CoordinateTest.cs" />
     <Compile Include="EditorFormTest.cs" />
     <Compile Include="GameFormTest.cs" />
+    <Compile Include="MapBrowserFormTest.cs" />
     <Compile Include="MapTest.cs" />
     <Compile Include="SettingsFormTest.cs" />
     <Compile Include="SquareTest.cs" />

@@ -35,7 +35,7 @@ namespace Minesweeper
 
         }
 
-        private void ReadOnlineFiles()
+        public void ReadOnlineFiles()
         {
             //use server, and use ReadLocalList as an example of sort of whats going on here
         }
@@ -49,7 +49,7 @@ namespace Minesweeper
             }
         }
 
-        private void PopulateLocalList()
+        public void PopulateLocalList()
         {
             YourMapsList.Items.Clear();
             foreach (String file in LocalFiles)
@@ -58,7 +58,7 @@ namespace Minesweeper
             }
         }
 
-        private void ReadLocalFiles()
+        public void ReadLocalFiles()
         {
             String[] rawfiles = Directory.GetFiles(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\bin\\debug");
             foreach (String s in rawfiles)
@@ -70,9 +70,20 @@ namespace Minesweeper
             }
         }
 
-        private String RemoveExcessFilename(String filename)
+        public String RemoveExcessFilename(String filename)
         {
             return filename.Substring(filename.LastIndexOf("\\") + 1); 
+        }
+
+
+        //For testing
+        public ListBox getYourMapsList()
+        {
+            return YourMapsList;
+        }
+        public ListBox getOnlineMapsList()
+        {
+            return OnlineMapsList;
         }
     }
 }

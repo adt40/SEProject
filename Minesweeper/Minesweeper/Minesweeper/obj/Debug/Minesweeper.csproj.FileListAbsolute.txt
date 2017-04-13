@@ -43,3 +43,4 @@ C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Mines
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.NetworkForm.resources
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.NetworkForm.resources
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.MapBrowserForm.resources
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.WinForm.resources
