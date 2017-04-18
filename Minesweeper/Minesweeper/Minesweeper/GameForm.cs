@@ -114,11 +114,13 @@ namespace Minesweeper
             {
                 square.hasFlag = true;
                 button.Text = "F";
+                button.ForeColor = Color.Red;
             }
             else
             {
                 square.hasFlag = false;
                 button.Text = "";
+                button.ForeColor = Color.Black;
             }
             if (CheckIfWin())
             {
@@ -174,6 +176,7 @@ namespace Minesweeper
                 {
                     button.Text = numAdj.ToString();
                     button.BackColor = SystemColors.ScrollBar;
+                    ColorText(numAdj, button);
                     square.hasClicked = true;
 
                 }
@@ -200,11 +203,46 @@ namespace Minesweeper
                         {
                             buttons[x + i, y + j].Text = map.squares[c].numAdjBombs.ToString();
                             buttons[x + i, y + j].BackColor = SystemColors.ScrollBar;
+                            ColorText(map.squares[c].numAdjBombs, buttons[x + i, y + j]);
                             map.squares[c].hasClicked = true;
                         }
                     }
 
                 }
+            }
+        }
+
+        public void ColorText(int numAdj, Button button)
+        {
+            switch (numAdj)
+            {
+                case 1:
+                    button.ForeColor = Color.Blue;
+                    break;
+                case 2:
+                    button.ForeColor = Color.ForestGreen;
+                    break;
+                case 3:
+                    button.ForeColor = Color.Red;
+                    break;
+                case 4:
+                    button.ForeColor = Color.Purple;
+                    break;
+                case 5:
+                    button.ForeColor = Color.Orange;
+                    break;
+                case 6:
+                    button.ForeColor = Color.DarkBlue;
+                    break;
+                case 7:
+                    button.ForeColor = Color.Goldenrod;
+                    break;
+                case 8:
+                    button.ForeColor = Color.DarkRed;
+                    break;
+                default:
+                    button.ForeColor = Color.Black;
+                    break;
             }
         }
 

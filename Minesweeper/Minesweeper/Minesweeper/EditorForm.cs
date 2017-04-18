@@ -66,13 +66,49 @@ namespace Minesweeper
                         check = c;
                         map.squares[c].isBomb = !map.squares[c].isBomb;                        
                         updateAdj();
-
+                        
 
                         keepLooping = false;
                     }
                 }
             }
         }
+
+        public void ColorText(int numAdj, Button button)
+        {
+            switch (numAdj)
+            {
+                case 1:
+                    button.ForeColor = Color.Blue;
+                    break;
+                case 2:
+                    button.ForeColor = Color.ForestGreen;
+                    break;
+                case 3:
+                    button.ForeColor = Color.Red;
+                    break;
+                case 4:
+                    button.ForeColor = Color.Purple;
+                    break;
+                case 5:
+                    button.ForeColor = Color.Orange;
+                    break;
+                case 6:
+                    button.ForeColor = Color.DarkBlue;
+                    break;
+                case 7:
+                    button.ForeColor = Color.Goldenrod;
+                    break;
+                case 8:
+                    button.ForeColor = Color.DarkRed;
+                    break;
+                default:
+                    button.ForeColor = Color.Black;
+                    break;
+            }
+        }
+
+
         [ExcludeFromCodeCoverage]
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -128,6 +164,7 @@ namespace Minesweeper
                         if (adj != 0)
                         {
                             buttons[x, y].Text = square.numAdjBombs.ToString();
+                            ColorText(square.numAdjBombs, buttons[x, y]);
                         }
                         else
                         {
@@ -137,6 +174,7 @@ namespace Minesweeper
                     else
                     {
                         buttons[x, y].Text = "B";
+                        buttons[x, y].ForeColor = Color.Black;
                     }
                 }
             }
