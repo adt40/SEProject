@@ -32,6 +32,7 @@
             this.NewGameButton = new System.Windows.Forms.Button();
             this.CustomMapEditorButton = new System.Windows.Forms.Button();
             this.browserButton = new System.Windows.Forms.Button();
+            this.QuitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -49,7 +50,7 @@
             // 
             this.NewGameButton.Font = new System.Drawing.Font("Lucida Sans Unicode", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NewGameButton.Location = new System.Drawing.Point(63, 155);
-            this.NewGameButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NewGameButton.Margin = new System.Windows.Forms.Padding(4);
             this.NewGameButton.Name = "NewGameButton";
             this.NewGameButton.Size = new System.Drawing.Size(187, 63);
             this.NewGameButton.TabIndex = 1;
@@ -61,7 +62,7 @@
             // 
             this.CustomMapEditorButton.Font = new System.Drawing.Font("Lucida Sans Unicode", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomMapEditorButton.Location = new System.Drawing.Point(343, 155);
-            this.CustomMapEditorButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CustomMapEditorButton.Margin = new System.Windows.Forms.Padding(4);
             this.CustomMapEditorButton.Name = "CustomMapEditorButton";
             this.CustomMapEditorButton.Size = new System.Drawing.Size(187, 65);
             this.CustomMapEditorButton.TabIndex = 2;
@@ -81,16 +82,29 @@
             this.browserButton.UseVisualStyleBackColor = true;
             this.browserButton.Click += new System.EventHandler(this.browserButton_Click);
             // 
+            // QuitButton
+            // 
+            this.QuitButton.Font = new System.Drawing.Font("Lucida Sans Unicode", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QuitButton.Location = new System.Drawing.Point(343, 270);
+            this.QuitButton.Margin = new System.Windows.Forms.Padding(4);
+            this.QuitButton.Name = "QuitButton";
+            this.QuitButton.Size = new System.Drawing.Size(187, 63);
+            this.QuitButton.TabIndex = 4;
+            this.QuitButton.Text = "quit";
+            this.QuitButton.UseVisualStyleBackColor = true;
+            this.QuitButton.Click += new System.EventHandler(this.QuitButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(611, 495);
+            this.Controls.Add(this.QuitButton);
             this.Controls.Add(this.browserButton);
             this.Controls.Add(this.CustomMapEditorButton);
             this.Controls.Add(this.NewGameButton);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Minesweeper PRO";
             this.ResumeLayout(false);
@@ -104,5 +118,6 @@
         private System.Windows.Forms.Button NewGameButton;
         private System.Windows.Forms.Button CustomMapEditorButton;
         private System.Windows.Forms.Button browserButton;
+        private System.Windows.Forms.Button QuitButton;
     }
 }

@@ -85,7 +85,7 @@ namespace Minesweeper
                     button.ForeColor = Color.ForestGreen;
                     break;
                 case 3:
-                    button.ForeColor = Color.Red;
+                    button.ForeColor = Color.DarkRed;
                     break;
                 case 4:
                     button.ForeColor = Color.Purple;
@@ -100,7 +100,7 @@ namespace Minesweeper
                     button.ForeColor = Color.Goldenrod;
                     break;
                 case 8:
-                    button.ForeColor = Color.DarkRed;
+                    button.ForeColor = Color.Brown;
                     break;
                 default:
                     button.ForeColor = Color.Black;

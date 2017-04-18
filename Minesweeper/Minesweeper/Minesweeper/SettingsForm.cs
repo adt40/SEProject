@@ -64,6 +64,7 @@ namespace Minesweeper
                 visibility = true;
                 customLabel.Visible = true;
                 customText.Visible = true;
+                button2.Visible = true;
             }
             else if (buttonSender.Name == "CustomMapEditorButton")
             {
@@ -73,6 +74,7 @@ namespace Minesweeper
                 bombLabel.Visible = false;
                 bombsScrollBar.Visible = false;
                 bombsText.Visible = false;
+                button2.Visible = false;
 
                 customLabel.Visible = false;
                 customText.Visible = false;

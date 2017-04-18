@@ -39,5 +39,10 @@ namespace Minesweeper
             browser.Show();
             this.Hide();
         }
+
+        private void QuitButton_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

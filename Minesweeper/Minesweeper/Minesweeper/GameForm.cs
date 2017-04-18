@@ -130,6 +130,23 @@ namespace Minesweeper
 
         private void Win()
         {
+            for (int x = 0; x < mapX; x++)
+            {
+                for (int y = 0; y < mapY; y++)
+                {
+                    Coordinate c = new Coordinate(x, y);
+                    if (!map.squares[c].isBomb)
+                    {
+                        int numAdj = map.squares[c].numAdjBombs;
+                        buttons[x, y].BackColor = SystemColors.ScrollBar;
+                        if (numAdj != 0)
+                        {
+                            buttons[x, y].Text = numAdj.ToString();
+                            ColorText(numAdj, buttons[x, y]);
+                        }
+                    }
+                }
+            }
             WinForm win = new WinForm(this);
             win.Show();
         }
@@ -223,7 +240,7 @@ namespace Minesweeper
                     button.ForeColor = Color.ForestGreen;
                     break;
                 case 3:
-                    button.ForeColor = Color.Red;
+                    button.ForeColor = Color.DarkRed;
                     break;
                 case 4:
                     button.ForeColor = Color.Purple;
@@ -238,7 +255,7 @@ namespace Minesweeper
                     button.ForeColor = Color.Goldenrod;
                     break;
                 case 8:
-                    button.ForeColor = Color.DarkRed;
+                    button.ForeColor = Color.Brown;
                     break;
                 default:
                     button.ForeColor = Color.Black;
