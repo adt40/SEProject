@@ -103,7 +103,7 @@ namespace Minesweeper
 
         private void UpdateBombScroll()
         {
-            bombsScrollBar.Maximum = 4 * (int)Math.Sqrt(xScrollBar.Value * yScrollBar.Value);
+            bombsScrollBar.Maximum = 3 * (int)Math.Sqrt(xScrollBar.Value * yScrollBar.Value);
         }
 
         public bool IsDigitsOnly(string str)

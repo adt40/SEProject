@@ -76,7 +76,8 @@ namespace Minesweeper
 
         public String RemoveExcessFilename(String filename)
         {
-            return filename.Substring(filename.LastIndexOf("\\") + 1); 
+            String justFile = filename.Substring(filename.LastIndexOf("\\") + 1);
+            return justFile.Substring(0, justFile.IndexOf("."));            
         }
 
 
