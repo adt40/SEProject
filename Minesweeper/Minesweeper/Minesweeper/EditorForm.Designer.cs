@@ -36,19 +36,19 @@ namespace Minesweeper
             this.resetMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileNameText = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.uploadDownloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveOutcomeLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(484, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(645, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -57,67 +57,50 @@ namespace Minesweeper
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.resetMapToolStripMenuItem,
             this.mainMenuToolStripMenuItem,
-            this.saveMapToolStripMenuItem,
-            this.uploadDownloadToolStripMenuItem});
+            this.saveMapToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
             // resetMapToolStripMenuItem
             // 
             this.resetMapToolStripMenuItem.Name = "resetMapToolStripMenuItem";
-            this.resetMapToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.resetMapToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
             this.resetMapToolStripMenuItem.Text = "Reset Map";
             this.resetMapToolStripMenuItem.Click += new System.EventHandler(this.resetMapToolStripMenuItem_Click);
             // 
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
             // 
             // saveMapToolStripMenuItem
             // 
             this.saveMapToolStripMenuItem.Name = "saveMapToolStripMenuItem";
-            this.saveMapToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.saveMapToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
             this.saveMapToolStripMenuItem.Text = "Save Map";
             this.saveMapToolStripMenuItem.Click += new System.EventHandler(this.saveMapToolStripMenuItem_Click);
             // 
-            // fileNameText
+            // SaveOutcomeLabel
             // 
-            this.fileNameText.Font = new System.Drawing.Font("Lucida Sans Unicode", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileNameText.Location = new System.Drawing.Point(12, 452);
-            this.fileNameText.Name = "fileNameText";
-            this.fileNameText.Size = new System.Drawing.Size(136, 27);
-            this.fileNameText.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lucida Sans Unicode", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 433);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Map Name";
-            // 
-            // uploadDownloadToolStripMenuItem
-            // 
-            this.uploadDownloadToolStripMenuItem.Name = "uploadDownloadToolStripMenuItem";
-            this.uploadDownloadToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.uploadDownloadToolStripMenuItem.Text = "Upload/Download";
-            this.uploadDownloadToolStripMenuItem.Click += new System.EventHandler(this.uploadDownloadToolStripMenuItem_Click);
+            this.SaveOutcomeLabel.AutoSize = true;
+            this.SaveOutcomeLabel.Font = new System.Drawing.Font("Lucida Sans", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveOutcomeLabel.Location = new System.Drawing.Point(-5, 578);
+            this.SaveOutcomeLabel.Name = "SaveOutcomeLabel";
+            this.SaveOutcomeLabel.Size = new System.Drawing.Size(0, 27);
+            this.SaveOutcomeLabel.TabIndex = 1;
             // 
             // EditorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 491);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.fileNameText);
+            this.ClientSize = new System.Drawing.Size(645, 604);
+            this.Controls.Add(this.SaveOutcomeLabel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "EditorForm";
             this.Text = "Map Editor";
             this.Load += new System.EventHandler(this.Form3_Load);
@@ -135,8 +118,6 @@ namespace Minesweeper
         private System.Windows.Forms.ToolStripMenuItem resetMapToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mainMenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveMapToolStripMenuItem;
-        private System.Windows.Forms.TextBox fileNameText;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripMenuItem uploadDownloadToolStripMenuItem;
+        private System.Windows.Forms.Label SaveOutcomeLabel;
     }
 }

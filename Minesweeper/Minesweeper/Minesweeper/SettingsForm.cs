@@ -211,6 +211,7 @@ namespace Minesweeper
         public void button2_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.InitialDirectory = (Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper");
             openFileDialog1.Filter = "MAP Files|*.map";
             openFileDialog1.Title = "Select a Map";
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)

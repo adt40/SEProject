@@ -91,14 +91,16 @@ namespace Minesweeper
         [ExcludeFromCodeCoverage]
         private void saveMapToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            String filename = fileNameText.Text;
+            String filename = Microsoft.VisualBasic.Interaction.InputBox("Save Map", "Enter name", "", 0, 0);
             if (filename.Length > 0)
             {
-                fileNameText.BackColor = SystemColors.Window;
+                
                 map.CreateMapFile(filename);
+                SaveOutcomeLabel.Text = "Map successfully saved!";
+
             } else
             {
-                fileNameText.BackColor = Color.Crimson;
+                SaveOutcomeLabel.Text = "Map could not be saved. Enter a valid filename.";
             }
             
 

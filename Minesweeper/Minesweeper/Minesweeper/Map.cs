@@ -92,7 +92,11 @@ namespace Minesweeper
         private Dictionary<Coordinate, Square> Generate(String filename)
         {
             Dictionary<Coordinate, Square> squares = new Dictionary<Coordinate, Square>();
-            StreamReader file = new StreamReader(filename);
+            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper"))
+            {
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper");
+            }
+            StreamReader file = new StreamReader(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper\\" + filename);
             width = int.Parse(file.ReadLine());
             height = int.Parse(file.ReadLine());
 
@@ -121,7 +125,12 @@ namespace Minesweeper
 
         public void CreateMapFile(String filename)
         {
-            StreamWriter file = new StreamWriter(filename + ".map");
+            Debug.Print(Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper").ToString());
+            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper"))
+            {
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper");
+            }
+            StreamWriter file = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper\\" + filename + ".map");
 
             file.WriteLine(width);
             file.WriteLine(height);

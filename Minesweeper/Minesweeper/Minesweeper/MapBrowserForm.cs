@@ -60,7 +60,11 @@ namespace Minesweeper
 
         public void ReadLocalFiles()
         {
-            String[] rawfiles = Directory.GetFiles(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\bin\\debug");
+            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper"))
+            {
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper");
+            }
+            String[] rawfiles = Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper");
             foreach (String s in rawfiles)
             {
                 if (s.Contains(".map"))
