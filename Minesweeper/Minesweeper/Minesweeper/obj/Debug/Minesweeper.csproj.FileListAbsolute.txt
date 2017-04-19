@@ -44,3 +44,7 @@ C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\M
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.NetworkForm.resources
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.MapBrowserForm.resources
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.WinForm.resources
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\AWSSDK.Core.dll
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\AWSSDK.S3.dll
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\AWSSDK.Core.xml
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\AWSSDK.S3.xml
