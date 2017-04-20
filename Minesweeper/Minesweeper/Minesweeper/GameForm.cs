@@ -278,7 +278,8 @@ namespace Minesweeper
         public void loseAt(Button button)
         {
             //If you lose like a heckin dummy
-            button.Text = "B";
+            
+            //button.Image = Image.FromFile("bomb.jpg");
             button.BackColor = SystemColors.ScrollBar;
             // Loop through grid to find each bomb and uncover them
             for (int xgrid = 0; xgrid < buttons.GetLength(0); xgrid++)
@@ -289,7 +290,7 @@ namespace Minesweeper
                     Square testsquare = map.squares[cgrid];
                     if (testsquare.isBomb)
                     {
-                        buttons[xgrid, ygrid].Text = "B";
+                        //button.Image = Image.FromFile("bomb.jpg");
                         buttons[xgrid, ygrid].BackColor = SystemColors.ScrollBar;
                     }
                 }
