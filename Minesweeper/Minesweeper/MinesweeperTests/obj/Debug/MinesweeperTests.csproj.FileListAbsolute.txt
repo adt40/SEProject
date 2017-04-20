@@ -29,4 +29,4 @@ C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\De
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\AWSSDK.Core.dll
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\AWSSDK.S3.xml
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\AWSSDK.Core.xml
->>>>>>> dfba45aa29968158d720ce7576504fe7b8a60a2d
+
