@@ -290,7 +290,8 @@ namespace Minesweeper
                     Square testsquare = map.squares[cgrid];
                     if (testsquare.isBomb)
                     {
-                        //button.Image = Image.FromFile("bomb.jpg");
+                        button.BackgroundImage = Minesweeper.Properties.Resources.bomb;
+                        button.BackgroundImageLayout = ImageLayout.Stretch;
                         buttons[xgrid, ygrid].BackColor = SystemColors.ScrollBar;
                     }
                 }

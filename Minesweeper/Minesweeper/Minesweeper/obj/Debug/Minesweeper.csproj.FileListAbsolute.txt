@@ -29,7 +29,6 @@ C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\M
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\Minesweeper.exe
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\Minesweeper.pdb
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.csprojResolveAssemblyReference.cache
-C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.csproj.ResolveComReference.cache
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.GameForm.resources
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.LoseForm.resources
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.MainForm.resources
@@ -48,3 +47,7 @@ C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\AWSSDK.S3.dll
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\AWSSDK.Core.xml
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\AWSSDK.S3.xml
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\AWSSDK.Core.xml
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\AWSSDK.S3.xml
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.MapBrowserForm.resources
+C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.WinForm.resources
