@@ -113,14 +113,14 @@ namespace Minesweeper
             if (!square.hasFlag)
             {
                 square.hasFlag = true;
-                button.Text = "F";
-                button.ForeColor = Color.Red;
+                button.BackgroundImage = Properties.Resources.flag;
+                button.BackgroundImageLayout = ImageLayout.Stretch;
             }
             else
             {
                 square.hasFlag = false;
-                button.Text = "";
-                button.ForeColor = Color.Black;
+                button.BackgroundImage = null;
+                
             }
             if (CheckIfWin())
             {
@@ -279,8 +279,6 @@ namespace Minesweeper
         {
             //If you lose like a heckin dummy
             
-            //button.Image = Image.FromFile("bomb.jpg");
-            button.BackColor = SystemColors.ScrollBar;
             // Loop through grid to find each bomb and uncover them
             for (int xgrid = 0; xgrid < buttons.GetLength(0); xgrid++)
             {
@@ -290,9 +288,8 @@ namespace Minesweeper
                     Square testsquare = map.squares[cgrid];
                     if (testsquare.isBomb)
                     {
-                        button.BackgroundImage = Minesweeper.Properties.Resources.bomb;
-                        button.BackgroundImageLayout = ImageLayout.Stretch;
-                        buttons[xgrid, ygrid].BackColor = SystemColors.ScrollBar;
+                        buttons[xgrid, ygrid].BackgroundImage = Properties.Resources.bomb;
+                        buttons[xgrid, ygrid].BackgroundImageLayout = ImageLayout.Stretch;
                     }
                 }
             }
