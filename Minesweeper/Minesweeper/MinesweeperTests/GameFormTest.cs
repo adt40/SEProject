@@ -146,7 +146,7 @@ namespace MinesweeperTests
             Button[] bombs = { testForm.buttons[4, 0], testForm.buttons[2, 2], testForm.buttons[0, 4] };
             foreach(Button b in bombs)
             {
-                Assert.AreEqual(b.Text, "B");
+                Assert.IsNotNull(b.BackgroundImage);
             }
         }
 
@@ -161,9 +161,9 @@ namespace MinesweeperTests
             Button rightClicked = testForm.buttons[0, 0];
             testForm.MapRightClicked(rightClicked, eLeft);
             testForm.MapRightClicked(rightClicked, eRight);
-            Assert.AreEqual(rightClicked.Text, "F");
+            Assert.IsNotNull(rightClicked.BackgroundImage);
             testForm.MapRightClicked(rightClicked, eRight);
-            Assert.AreEqual(rightClicked.Text, "");
+            Assert.IsNull(rightClicked.BackgroundImage);
         }
 
         [TestMethod]

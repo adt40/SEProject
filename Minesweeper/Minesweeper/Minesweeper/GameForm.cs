@@ -20,8 +20,12 @@ namespace Minesweeper
         public Button[,] buttons;
         public bool checkFile = true; //checks file for validity. We could use this boolean to return back to settings/load/whatever
         private bool winCondition = true;
+        public int Time { get; }
+
         public GameForm(int x, int y, int bombs)
         {
+            Time = 0;
+
             //Test values, grab real values some other way
             mapX = x;
             mapY = y;
@@ -34,6 +38,8 @@ namespace Minesweeper
 
         public GameForm(String filename)
         {
+            Time = 0;
+
             String filetype = filename.Substring(filename.Length - 3);
             map = new Map(filename);
             mapX = map.width;
@@ -113,14 +119,14 @@ namespace Minesweeper
             if (!square.hasFlag)
             {
                 square.hasFlag = true;
-                button.Text = "F";
-                button.ForeColor = Color.Red;
+                button.BackgroundImage = Properties.Resources.flag;
+                button.BackgroundImageLayout = ImageLayout.Stretch;
             }
             else
             {
                 square.hasFlag = false;
-                button.Text = "";
-                button.ForeColor = Color.Black;
+                button.BackgroundImage = null;
+                
             }
             if (CheckIfWin())
             {
@@ -147,6 +153,8 @@ namespace Minesweeper
                     }
                 }
             }
+            GameTimer.Enabled = false;
+
             WinForm win = new WinForm(this);
             win.Show();
         }
@@ -263,6 +271,12 @@ namespace Minesweeper
             }
         }
 
+        private void GameTimer_Tick(object sender, EventArgs e)
+        {
+            time = Time + 1;
+            TimerLabel.Text = "Time: " + Time;
+        }
+
         public Coordinate findButtonCoordinates(Button sender)
         {
             for (int x = 0; x < buttons.GetLength(0); x++)
@@ -278,8 +292,7 @@ namespace Minesweeper
         public void loseAt(Button button)
         {
             //If you lose like a heckin dummy
-            button.Text = "B";
-            button.BackColor = SystemColors.ScrollBar;
+            
             // Loop through grid to find each bomb and uncover them
             for (int xgrid = 0; xgrid < buttons.GetLength(0); xgrid++)
             {
@@ -289,11 +302,12 @@ namespace Minesweeper
                     Square testsquare = map.squares[cgrid];
                     if (testsquare.isBomb)
                     {
-                        buttons[xgrid, ygrid].Text = "B";
-                        buttons[xgrid, ygrid].BackColor = SystemColors.ScrollBar;
+                        buttons[xgrid, ygrid].BackgroundImage = Properties.Resources.bomb;
+                        buttons[xgrid, ygrid].BackgroundImageLayout = ImageLayout.Stretch;
                     }
                 }
             }
+            GameTimer.Enabled = false;
             winCondition = false;
             LoseForm youLose = new LoseForm(this);
             youLose.Show();

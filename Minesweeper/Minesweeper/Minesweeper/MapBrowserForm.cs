@@ -21,7 +21,7 @@ namespace Minesweeper
         public List<String> LocalFiles { get; }
         public List<S3Object> OnlineFiles { get; }
         public AmazonS3Client client;
-        TransferUtility utility;
+        public TransferUtility utility;
 
         public MapBrowserForm()
         {

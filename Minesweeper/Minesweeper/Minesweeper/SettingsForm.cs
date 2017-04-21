@@ -32,7 +32,7 @@ namespace Minesweeper
             {
                 if (customText.Text == "")
                 {
-                    GameForm game = new GameForm(xScrollBar.Value, yScrollBar.Value, bombsScrollBar.Value);
+                    GameForm game = new GameForm(yScrollBar.Value, xScrollBar.Value, bombsScrollBar.Value); //x and y are backwards because 2D arrays are dumb
                     game.Show();
                 } else
                 {
@@ -42,7 +42,7 @@ namespace Minesweeper
                 this.Hide();
             } else if (buttonSender.Name == "CustomMapEditorButton")
             {
-                EditorForm editor = new EditorForm(xScrollBar.Value, yScrollBar.Value);
+                EditorForm editor = new EditorForm(yScrollBar.Value, xScrollBar.Value); //x and y are backwards because 2D arrays are dumb
                 editor.Show();
                 this.Hide();
             }
