@@ -90,12 +90,6 @@
     <Compile Include="MapBrowserForm.Designer.cs">
       <DependentUpon>MapBrowserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NetworkForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NetworkForm.Designer.cs">
-      <DependentUpon>NetworkForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,9 +123,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MapBrowserForm.resx">
       <DependentUpon>MapBrowserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NetworkForm.resx">
-      <DependentUpon>NetworkForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>

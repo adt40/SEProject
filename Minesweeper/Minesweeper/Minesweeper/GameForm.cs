@@ -19,8 +19,7 @@ namespace Minesweeper
         public Map map { get; set; }
         public Button[,] buttons;
         public bool checkFile = true; //checks file for validity. We could use this boolean to return back to settings/load/whatever
-        private bool winCondition = true;
-        public int Time { get; }
+        public int Time { get; set; }
 
         public GameForm(int x, int y, int bombs)
         {
@@ -273,7 +272,7 @@ namespace Minesweeper
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
-            time = Time + 1;
+            Time = Time + 1;
             TimerLabel.Text = "Time: " + Time;
         }
 
@@ -308,7 +307,6 @@ namespace Minesweeper
                 }
             }
             GameTimer.Enabled = false;
-            winCondition = false;
             LoseForm youLose = new LoseForm(this);
             youLose.Show();
         }

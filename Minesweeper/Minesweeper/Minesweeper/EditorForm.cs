@@ -131,7 +131,7 @@ namespace Minesweeper
             if (filename.Length > 0)
             {
                 
-                map.CreateMapFile(filename);
+                map.CreateMapFile(filename + ".map");
                 SaveOutcomeLabel.Text = "Map successfully saved!";
 
             } else
@@ -140,13 +140,6 @@ namespace Minesweeper
             }
             
 
-        }
-        [ExcludeFromCodeCoverage]
-        private void uploadDownloadToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NetworkForm network = new NetworkForm();
-            network.Show();
-            this.Hide();
         }
 
         public void updateAdj()

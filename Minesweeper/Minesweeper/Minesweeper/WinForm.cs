@@ -18,7 +18,7 @@ namespace Minesweeper
 {
     public partial class WinForm : Form
     {
-        TransferUtility utility;
+        
         GameForm game;
         public WinForm(GameForm game) {
             this.game = game;
@@ -26,12 +26,23 @@ namespace Minesweeper
         }
         public WinForm()
         {
+            
             InitializeComponent();
             //for unit testing
         }
         private void WinForm_Load(object sender, EventArgs e)
         {
-
+            int counter = 0;
+            foreach (String name in game.map.scores.Keys)
+            {
+                HighScoresList.Items.Add(game.map.scores[name] + "   " + name);
+                HighScoresList.Sorted = true;
+                counter += 1;
+                if (counter >= 10)
+                {
+                    break;
+                }
+            }
         }
         
         private void button1_Click(object sender, EventArgs e)
@@ -41,44 +52,25 @@ namespace Minesweeper
             game.Hide();
             this.Hide();
         }
-        private void downloader(String filename)
-        {
-            //download file
-            
-            TransferUtilityDownloadRequest request = new TransferUtilityDownloadRequest();
-            request.BucketName = "eecs393highscore";
-            
-            request.FilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper\\" + filename + ".score";
-            request.Key = filename + ".score";
-            utility.Download(request);
-        }
-        private void uploader(String filename)
-        {
-            TransferUtilityUploadRequest request = new TransferUtilityUploadRequest();
-            request.BucketName = "eecs393highscore";
-            request.FilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper\\" + filename + ".score";
-            utility.Upload(request);
-            
-        }
+
         private void button2_Click(object sender, EventArgs e)
         {
-            //putting a highScore file online
-            //download latest file
-            String filename = "highScore";
-            downloader(filename);
-            String USR = textBox1.Text+" ";
-            Debug.Print(Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper").ToString());
-            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper"))
-            {
-                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper");
-            }
-            StreamWriter file = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper\\" + filename + ".score");
-            File.AppendAllText(filename + ".score", USR);
+            TransferUtility utility = new TransferUtility(RegionEndpoint.USEast2);
 
-            //uploading file
-            uploader(filename);
+            game.map.scores.Add(textBox1.Text, game.Time);
+            game.map.CreateMapFile(game.map.MyName);
 
-            
+            TransferUtilityUploadRequest request = new TransferUtilityUploadRequest();
+            request.BucketName = "eecs393minesweeper";
+            String filename = game.map.MyName;
+            request.FilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper\\" + filename;
+            utility.Upload(request);
+
+            MainForm main = new MainForm();
+            main.Show();
+            game.Hide();
+            this.Hide();
+
         }
     }
 }

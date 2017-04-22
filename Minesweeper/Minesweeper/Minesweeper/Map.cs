@@ -14,18 +14,25 @@ namespace Minesweeper
         public int height { get; set; }
         public int numBombs { get; set; }
         public Dictionary<Coordinate, Square> squares { get; private set; }
+        public Dictionary<String, int> scores { get; set; }
+        public String MyName { get; set; }
 
         public Map(int width, int height, int numBombs)
         {
             this.width = width;
             this.height = height;
             this.numBombs = numBombs;
+            squares = new Dictionary<Coordinate, Square>();
+            scores = new Dictionary<string, int>();
             squares = Generate(width, height, numBombs);
         }
 
         public Map(String filename)
         {
+            squares = new Dictionary<Coordinate, Square>();
+            scores = new Dictionary<string, int>();
             squares = Generate(filename);
+            MyName = filename;
         }
 
         public void SetAdjBombVals()
@@ -91,12 +98,12 @@ namespace Minesweeper
 
         private Dictionary<Coordinate, Square> Generate(String filename)
         {
-            Dictionary<Coordinate, Square> squares = new Dictionary<Coordinate, Square>();
-            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper"))
+            String documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper";
+            if (!Directory.Exists(documents))
             {
-                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper");
+                Directory.CreateDirectory(documents);
             }
-            StreamReader file = new StreamReader(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper\\" + filename);
+            StreamReader file = new StreamReader(documents + "\\" + filename);
             width = int.Parse(file.ReadLine());
             height = int.Parse(file.ReadLine());
 
@@ -119,18 +126,27 @@ namespace Minesweeper
                     }
                 }
             }
+            while (!file.EndOfStream)
+            {
+                String scoreLine = file.ReadLine();
+                String name = scoreLine.Substring(0, scoreLine.IndexOf("|"));
+                int score = int.Parse(scoreLine.Substring(scoreLine.IndexOf("|") + 1));
+                scores.Add(name, score);
+            }
+
+
             file.Close();
             return squares;
         }
 
         public void CreateMapFile(String filename)
         {
-            Debug.Print(Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper").ToString());
-            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper"))
+            String documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper";
+            if (!Directory.Exists(documents))
             {
-                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper");
+                Directory.CreateDirectory(documents);
             }
-            StreamWriter file = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper\\" + filename + ".map");
+            StreamWriter file = new StreamWriter(documents + "\\" + filename);
 
             file.WriteLine(width);
             file.WriteLine(height);
@@ -153,6 +169,10 @@ namespace Minesweeper
                 }
                 file.WriteLine(line);
                 file.Flush();
+            }
+            //writing scores
+            foreach (String name in scores.Keys) {
+                file.WriteLine(name + "|" + scores[name].ToString());
             }
 
             file.Close();
