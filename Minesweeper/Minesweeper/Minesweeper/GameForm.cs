@@ -274,6 +274,7 @@ namespace Minesweeper
         {
             Time = Time + 1;
             TimerLabel.Text = "Time: " + Time;
+
         }
 
         public Coordinate findButtonCoordinates(Button sender)
