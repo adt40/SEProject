@@ -51,4 +51,4 @@ C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Mines
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.Leaderboard.resources
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\AWSSDK.Core.xml
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\AWSSDK.S3.xml
->>>>>>> e9fcdbe7fdd0b10696d9ab9b4dde542552d90d5b
+C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.Leaderboard.resources

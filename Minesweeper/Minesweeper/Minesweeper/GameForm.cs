@@ -127,10 +127,7 @@ namespace Minesweeper
                 button.BackgroundImage = null;
                 
             }
-            if (CheckIfWin())
-            {
-                Win();
-            }
+            
         }
 
         private void Win()
@@ -165,7 +162,7 @@ namespace Minesweeper
                 for (int y = 0; y < mapY; y++)
                 {
                     Coordinate c = new Coordinate(x, y);
-                    if (map.squares[c].isBomb && !map.squares[c].hasFlag)
+                    if (!map.squares[c].isBomb && !map.squares[c].hasClicked)
                     {
                         return false;
                     }
@@ -204,7 +201,12 @@ namespace Minesweeper
                     square.hasClicked = true;
 
                 }
+                if (CheckIfWin())
+                {
+                    Win();
+                }
             }
+
         }
 
         public void revealZeros(int x, int y)
