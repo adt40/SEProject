@@ -18,7 +18,6 @@ C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.MainForm.resources
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.EditorForm.resources
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.SettingsForm.resources
-C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.csproj.ResolveComReference.cache
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.GameForm.resources
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.MainForm.resources
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.EditorForm.resources
@@ -50,3 +49,6 @@ C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\AWSSDK.S3.xml
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.MapBrowserForm.resources
 C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.WinForm.resources
+C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.Leaderboard.resources
+C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\AWSSDK.Core.xml
+C:\Users\super\OneDrive\Documents\GitHub\SEProject\Minesweeper\Minesweeper\Minesweeper\bin\Debug\AWSSDK.S3.xml

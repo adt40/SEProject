@@ -273,8 +273,8 @@ namespace Minesweeper
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
-            time = Time + 1;
-            TimerLabel.Text = "Time: " + Time;
+            int time = Time + 1;
+            TimerLabel.Text = "Time: " + time;
         }
 
         public Coordinate findButtonCoordinates(Button sender)
