@@ -11,40 +11,35 @@ namespace MinesweeperTests
     [TestClass]
     public class WinFormTest
     {
-        public WinFormTest()
-        {
-            WinForm win = new WinForm();
-
-        }
-
-        #region Additional test attributes
-        //
-        // You can use the following additional attributes as you write your tests:
-        //
-        // Use ClassInitialize to run code before running the first test in the class
-        // [ClassInitialize()]
-        // public static void MyClassInitialize(TestContext testContext) { }
-        //
-        // Use ClassCleanup to run code after all tests in a class have run
-        // [ClassCleanup()]
-        // public static void MyClassCleanup() { }
-        //
-        // Use TestInitialize to run code before running each test 
-        // [TestInitialize()]
-        // public void MyTestInitialize() { }
-        //
-        // Use TestCleanup to run code after each test has run
-        // [TestCleanup()]
-        // public void MyTestCleanup() { }
-        //
-        #endregion
 
         [TestMethod]
-        public void TestMethod1()
+        public void randomMapTest()
         {
-            //
-            // TODO: Add test logic here
-            //
+            WinForm win = new WinForm(new GameForm(5,5,1));
+            win.Show();
+            Assert.AreEqual(win.Height, 200); //check that it detected a random map
+
         }
+
+        [TestMethod]
+        public void customMapTest()
+        {
+            WinForm win = new WinForm(new GameForm("testmap.map"));
+            win.Show();
+            Assert.IsTrue(win.Height > 200); //check that it detected a custom map
+
+        }
+
+        [TestMethod]
+        public void uploadTest()
+        {
+            WinForm win = new WinForm(new GameForm("testmap.map"));
+            win.Show();
+            win.button2_Click(null, null);
+            win.Dispose();
+            Assert.IsTrue(true); //This method is straight line code; just assure that it runs without error
+            
+        }
+
     }
 }

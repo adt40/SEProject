@@ -12,6 +12,7 @@ using Amazon.S3;
 using Amazon.S3.Transfer;
 using Amazon.S3.Model;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 
 namespace Minesweeper
@@ -61,7 +62,8 @@ namespace Minesweeper
             }
 
         }
-        
+
+        [ExcludeFromCodeCoverage]
         private void button1_Click(object sender, EventArgs e)
         {
             MainForm main = new MainForm();
@@ -70,14 +72,20 @@ namespace Minesweeper
             this.Hide();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             TransferUtility utility = new TransferUtility(RegionEndpoint.USEast2);
             
-            game.map.scores.Add(textBox1.Text, game.Time);
+            if (game.map.scores.Keys.Contains(textBox1.Text))
+            {
+                game.map.scores[textBox1.Text] = game.Time;
+            } else
+            {
+                game.map.scores.Add(textBox1.Text, game.Time);
+            }
+            
 
             game.map.CreateMapFile(filename);
-            Debug.Print(filename);
 
             TransferUtilityUploadRequest request = new TransferUtilityUploadRequest();
             request.BucketName = "eecs393minesweeper";
