@@ -19,7 +19,9 @@ namespace Minesweeper
     public partial class WinForm : Form
     {
         
-        GameForm game;
+        public GameForm game;
+        public String filename;
+
         public WinForm(GameForm game) {
             this.game = game;
             InitializeComponent();
@@ -32,17 +34,32 @@ namespace Minesweeper
         }
         private void WinForm_Load(object sender, EventArgs e)
         {
-            int counter = 0;
-            foreach (String name in game.map.scores.Keys)
+            filename = game.map.MyName;
+            if (filename == null)
             {
-                HighScoresList.Items.Add(game.map.scores[name] + "   " + name);
-                HighScoresList.Sorted = true;
-                counter += 1;
-                if (counter >= 10)
+                label2.Visible = false;
+                label3.Visible = false;
+                label4.Visible = false;
+                HighScoresList.Visible = false;
+                textBox1.Visible = false;
+                button2.Visible = false;
+                Height = 200;
+            } else
+            {
+
+                int counter = 0;
+                foreach (String name in game.map.scores.Keys)
                 {
-                    break;
+                    HighScoresList.Items.Add(game.map.scores[name] + "   " + name);
+                    HighScoresList.Sorted = true;
+                    counter += 1;
+                    if (counter >= 10)
+                    {
+                        break;
+                    }
                 }
             }
+
         }
         
         private void button1_Click(object sender, EventArgs e)
@@ -56,13 +73,15 @@ namespace Minesweeper
         private void button2_Click(object sender, EventArgs e)
         {
             TransferUtility utility = new TransferUtility(RegionEndpoint.USEast2);
-
+            
             game.map.scores.Add(textBox1.Text, game.Time);
-            game.map.CreateMapFile(game.map.MyName);
+
+            game.map.CreateMapFile(filename);
+            Debug.Print(filename);
 
             TransferUtilityUploadRequest request = new TransferUtilityUploadRequest();
             request.BucketName = "eecs393minesweeper";
-            String filename = game.map.MyName;
+            
             request.FilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper\\" + filename;
             utility.Upload(request);
 
