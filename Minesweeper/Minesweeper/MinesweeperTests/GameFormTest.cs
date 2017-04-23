@@ -138,16 +138,16 @@ namespace MinesweeperTests
         public void testLoseAt()
         {
             GameForm testForm = new GameForm("testmap.map");
-            Button sender = new Button();
-            testForm.Form1_Load(sender, null);
-            testForm.loseAt(testForm.buttons[3, 2]);
-            Coordinate[] bombs = { new Coordinate(3, 2), new Coordinate(2, 3), new Coordinate(2, 4) };
-            //Button[] bombs = { testForm.buttons[3, 2], testForm.buttons[2, 3], testForm.buttons[2, 4] };
+            testForm.Show();
+            testForm.MapClicked(testForm.buttons[2, 2], null);
+            Dictionary<Coordinate, Square> squares = testForm.map.squares;
+            
+            Coordinate[] bombs = { new Coordinate(2, 2), new Coordinate(0, 4), new Coordinate(4, 0) };
+            
             foreach (Coordinate b in bombs)
             {
-                Assert.AreEqual(testForm.map.squares[b].hasClicked, true);
-                //Assert.AreEqual(b.BackgroundImage, Properties.Resources.bomb);
-                
+                Assert.IsTrue(squares[b].hasClicked);
+
             }
         }
 

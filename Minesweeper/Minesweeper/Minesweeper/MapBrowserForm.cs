@@ -39,7 +39,6 @@ namespace Minesweeper
             ReadOnlineFiles();
             PopulateOnlineList();
 
-
         }
 
         public void ReadOnlineFiles()
