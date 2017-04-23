@@ -181,11 +181,11 @@ namespace Minesweeper
         public String viewBombsAndNums()
         {
             String result = "";
-            for (int i = 0; i < width; i++)
+            for (int i = 0; i <height; i++)
             {
-                for (int j = 0; j < height; j++)
+                for (int j = 0; j < width; j++)
                 {
-                    Coordinate toTest = new Coordinate(i, j);
+                    Coordinate toTest = new Coordinate(j, i);
                     if (squares[toTest].isBomb) result += "B";
                     else result += squares[toTest].numAdjBombs;
                 }

@@ -27,7 +27,9 @@ namespace MinesweeperTests
         public void PopulateLocalListTest()
         {
             MapBrowserForm browser = new MapBrowserForm();
+            browser.PopulateLocalList();
             Assert.IsTrue(0 < browser.getYourMapsList().Items.Count);
+            
         }
 
         [TestMethod]

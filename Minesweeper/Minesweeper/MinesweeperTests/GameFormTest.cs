@@ -108,17 +108,15 @@ namespace MinesweeperTests
         public void RevealZerosTest()
         {
             GameForm testForm = new GameForm("testmap.map");
+            //Map map = testForm.map;
             Button sender = new Button();
             testForm.Form1_Load(sender, null);
-            testForm.revealZeros(2, 4);
-            Map map = testForm.map;
-            Coordinate[] clickedCoordinates = {new Coordinate(3, 1), new Coordinate(4, 1), new Coordinate(3, 2),
-                                             new Coordinate(4, 2), new Coordinate(1, 3), new Coordinate(2, 3),
-                                             new Coordinate(3, 3), new Coordinate(4, 3), new Coordinate(1, 4),
-                                             new Coordinate(2, 4), new Coordinate(3, 4), new Coordinate(4, 4)};
+            testForm.revealZeros(4, 4);
+            
+            Coordinate[] clickedCoordinates = {new Coordinate(3, 3), new Coordinate(3, 4), new Coordinate(4, 3)};
             foreach(Coordinate c in clickedCoordinates)
             {
-                Assert.IsTrue(map.squares[c].hasClicked);
+                Assert.IsTrue(testForm.map.squares[c].hasClicked);
             }
            
         }
@@ -142,11 +140,14 @@ namespace MinesweeperTests
             GameForm testForm = new GameForm("testmap.map");
             Button sender = new Button();
             testForm.Form1_Load(sender, null);
-            testForm.loseAt(testForm.buttons[4, 0]);
-            Button[] bombs = { testForm.buttons[4, 0], testForm.buttons[2, 2], testForm.buttons[0, 4] };
-            foreach(Button b in bombs)
+            testForm.loseAt(testForm.buttons[3, 2]);
+            Coordinate[] bombs = { new Coordinate(3, 2), new Coordinate(2, 3), new Coordinate(2, 4) };
+            //Button[] bombs = { testForm.buttons[3, 2], testForm.buttons[2, 3], testForm.buttons[2, 4] };
+            foreach (Coordinate b in bombs)
             {
-                Assert.IsNotNull(b.BackgroundImage);
+                Assert.AreEqual(testForm.map.squares[b].hasClicked, true);
+                //Assert.AreEqual(b.BackgroundImage, Properties.Resources.bomb);
+                
             }
         }
 
@@ -180,6 +181,11 @@ namespace MinesweeperTests
                     if (g.map.squares[c].isBomb)
                     {
                         g.map.squares[c].hasFlag = true;
+                    }
+                    else
+                    {
+                        g.map.squares[c].hasClicked = true;
+
                     }
                 }
             }

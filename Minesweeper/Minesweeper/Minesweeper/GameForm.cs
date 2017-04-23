@@ -304,6 +304,7 @@ namespace Minesweeper
                     Square testsquare = map.squares[cgrid];
                     if (testsquare.isBomb)
                     {
+                        map.squares[cgrid].hasClicked = true;
                         buttons[xgrid, ygrid].BackgroundImage = Properties.Resources.bomb;
                         buttons[xgrid, ygrid].BackgroundImageLayout = ImageLayout.Stretch;
                     }
