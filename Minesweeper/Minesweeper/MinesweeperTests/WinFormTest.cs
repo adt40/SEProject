@@ -5,9 +5,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Minesweeper;
 namespace MinesweeperTests
 {
-    /// <summary>
-    /// Summary description for WinFormTest
-    /// </summary>
     [TestClass]
     public class WinFormTest
     {

@@ -44,6 +44,7 @@ namespace Minesweeper
                 HighScoresList.Visible = false;
                 textBox1.Visible = false;
                 button2.Visible = false;
+                button1.Left = 100;
                 Height = 200;
             } else
             {

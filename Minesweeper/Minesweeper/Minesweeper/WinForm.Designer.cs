@@ -41,20 +41,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 48);
+            this.label1.Font = new System.Drawing.Font("Lucida Sans", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(148, 28);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(325, 17);
+            this.label1.Size = new System.Drawing.Size(103, 22);
             this.label1.TabIndex = 1;
-            this.label1.Text = " AW HECKN\' YES U DID IT M80 I KNEW U COULD";
+            this.label1.Text = "YOU WIN!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Lucida Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(25, 78);
             this.button1.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 60);
+            this.button1.Size = new System.Drawing.Size(133, 65);
             this.button1.TabIndex = 2;
             this.button1.Text = "BASK IN THE GLORY OF THE MAIN MENU";
             this.button1.UseVisualStyleBackColor = true;
@@ -62,6 +64,7 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Lucida Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(233, 143);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
@@ -73,36 +76,40 @@
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("Lucida Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(233, 113);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(133, 22);
+            this.textBox1.Size = new System.Drawing.Size(133, 23);
             this.textBox1.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(246, 75);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 34);
+            this.label2.Size = new System.Drawing.Size(103, 32);
             this.label2.TabIndex = 5;
             this.label2.Text = "(note: map will\r\nbe uploaded)";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Lucida Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(176, 113);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 17);
+            this.label3.Size = new System.Drawing.Size(49, 16);
             this.label3.TabIndex = 6;
             this.label3.Text = "Name:";
             // 
             // HighScoresList
             // 
+            this.HighScoresList.Font = new System.Drawing.Font("Lucida Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HighScoresList.FormattingEnabled = true;
-            this.HighScoresList.ItemHeight = 16;
+            this.HighScoresList.ItemHeight = 15;
             this.HighScoresList.Location = new System.Drawing.Point(60, 213);
             this.HighScoresList.Name = "HighScoresList";
             this.HighScoresList.Size = new System.Drawing.Size(245, 244);
