@@ -37,6 +37,7 @@ namespace Minesweeper
 
         public void SetAdjBombVals()
         {
+            zeroAllSquares();
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
@@ -206,6 +207,17 @@ namespace Minesweeper
                 }
             }
             return result;
+        }
+
+        public void zeroAllSquares()
+        {
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    squares[new Coordinate(i, j)].numAdjBombs = 0;
+                }
+            }
         }
     }
 }

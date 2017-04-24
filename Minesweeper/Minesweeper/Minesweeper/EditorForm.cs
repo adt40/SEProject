@@ -153,6 +153,7 @@ namespace Minesweeper
                     Square square = map.squares[c];
                     if (!square.isBomb)
                     {
+                        buttons[x, y].BackgroundImage = null;
                         int adj = square.numAdjBombs;
                         if (adj != 0)
                         {

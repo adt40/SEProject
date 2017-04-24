@@ -65,7 +65,6 @@ namespace MinesweeperTests
         [TestMethod]
         public void updateAdjTest()
         {
-            String checka = "B";
             String neighbor = "1";
             Coordinate checker = new Coordinate(0, 0);
             EditorForm testEditor1 = new EditorForm(5, 5);
@@ -74,7 +73,7 @@ namespace MinesweeperTests
             testEditor1.map.squares[checker].isBomb = !testEditor1.map.squares[checker].isBomb;
             testEditor1.updateAdj();
             //checking to see if bombs are there after "click"
-            Assert.AreEqual(checka, testEditor1.buttons[0, 0].Text);
+            Assert.IsNotNull(testEditor1.buttons[0, 0].BackgroundImage);
             Coordinate[] adjCheck = { new Coordinate(0, 1), new Coordinate(1, 1), new Coordinate(1, 0) };
             //checking the appended numbers next to bomb
             foreach (Coordinate c in adjCheck)

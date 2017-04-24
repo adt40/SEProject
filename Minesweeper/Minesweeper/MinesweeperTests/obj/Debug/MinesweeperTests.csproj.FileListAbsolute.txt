@@ -24,7 +24,6 @@ C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\D
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\AWSSDK.Core.dll
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\AWSSDK.S3.xml
 C:\cygwin64\home\Austin\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\AWSSDK.Core.xml
-C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\AWSSDK.S3.dll
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\AWSSDK.Core.dll
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\AWSSDK.S3.xml
 C:\cygwin\home\User\SE\SEProject\Minesweeper\Minesweeper\MinesweeperTests\bin\Debug\AWSSDK.Core.xml
