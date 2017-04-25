@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Minesweeper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Drawing;
 
 namespace MinesweeperTests
 {
@@ -102,6 +103,11 @@ namespace MinesweeperTests
             testForm.MapClicked(noBomb, null);
             testForm.MapClicked(AdjNum, null);
             testForm.MapClicked(withBomb, null);
+
+            GameForm winForm = new GameForm("GOTTAGOFAST.map");
+            winForm.Form1_Load(sender, null);
+            Button winButton = winForm.buttons[0, 0];
+            winForm.MapClicked(winButton, null);
         }
 
         [TestMethod]
@@ -191,6 +197,32 @@ namespace MinesweeperTests
             }
 
             Assert.IsTrue(g.CheckIfWin());
+        }
+
+        [TestMethod]
+        public void colorTextTest()
+        {
+            GameForm test = new GameForm(5, 5, 1);
+            Button b = new Button();
+            b.ForeColor = Color.Black;
+            test.ColorText(1, b);
+            Assert.AreEqual(Color.Blue, b.ForeColor);
+            test.ColorText(2, b);
+            Assert.AreEqual(Color.ForestGreen, b.ForeColor);
+            test.ColorText(3, b);
+            Assert.AreEqual(Color.DarkRed, b.ForeColor);
+            test.ColorText(4, b);
+            Assert.AreEqual(Color.Purple, b.ForeColor);
+            test.ColorText(5, b);
+            Assert.AreEqual(Color.Orange, b.ForeColor);
+            test.ColorText(6, b);
+            Assert.AreEqual(Color.DarkBlue, b.ForeColor);
+            test.ColorText(7, b);
+            Assert.AreEqual(Color.Goldenrod, b.ForeColor);
+            test.ColorText(8, b);
+            Assert.AreEqual(Color.Brown, b.ForeColor);
+            test.ColorText(0, b);
+            Assert.AreEqual(Color.Black, b.ForeColor);
         }
     }
 }

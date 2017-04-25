@@ -27,6 +27,8 @@ namespace Minesweeper
             this.game = game;
             InitializeComponent();
         }
+
+        [ExcludeFromCodeCoverage]
         public WinForm()
         {
             

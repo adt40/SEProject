@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Minesweeper
 {
@@ -97,9 +98,12 @@ namespace Minesweeper
             return squares;
         }
 
+        //These blocks have been excluded from code coverage, because to fully test all blocks requires a test computer to not have a minesweeper documents folder
+        [ExcludeFromCodeCoverage]
         private Dictionary<Coordinate, Square> Generate(String filename)
         {
             String documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper";
+            
             if (!Directory.Exists(documents))
             {
                 Directory.CreateDirectory(documents);
@@ -140,6 +144,8 @@ namespace Minesweeper
             return squares;
         }
 
+        //These blocks have been excluded from code coverage, because to fully test all blocks requires a test computer to not have a minesweeper documents folder
+        [ExcludeFromCodeCoverage]
         public void CreateMapFile(String filename)
         {
             String documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper";

@@ -13,6 +13,7 @@ using Amazon;
 using Amazon.S3;
 using Amazon.S3.Transfer;
 using Amazon.S3.Model;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Minesweeper
 {
@@ -71,6 +72,8 @@ namespace Minesweeper
             }
         }
 
+        //These blocks have been excluded from code coverage, because to fully test all blocks requires a test computer to not have a minesweeper documents folder
+        [ExcludeFromCodeCoverage]
         public void ReadLocalFiles()
         {
             LocalFiles.Clear();
@@ -129,6 +132,7 @@ namespace Minesweeper
             PopulateLocalList();
         }
 
+        [ExcludeFromCodeCoverage]
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MainForm main = new MainForm();

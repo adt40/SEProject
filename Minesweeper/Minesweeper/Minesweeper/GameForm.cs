@@ -20,6 +20,7 @@ namespace Minesweeper
         public Button[,] buttons;
         public bool checkFile = true; //checks file for validity. We could use this boolean to return back to settings/load/whatever
         public int Time { get; set; }
+        [ExcludeFromCodeCoverage]
         public bool fromFile { get; set; }
 
         public GameForm(int x, int y, int bombs)

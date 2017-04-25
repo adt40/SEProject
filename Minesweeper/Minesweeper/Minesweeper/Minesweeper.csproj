@@ -60,12 +60,6 @@
     <Compile Include="GameForm.Designer.cs">
       <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Leaderboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Leaderboard.Designer.cs">
-      <DependentUpon>Leaderboard.cs</DependentUpon>
-    </Compile>
     <Compile Include="LoseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,9 +102,6 @@
     </Compile>
     <EmbeddedResource Include="GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Leaderboard.resx">
-      <DependentUpon>Leaderboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoseForm.resx">
       <DependentUpon>LoseForm.cs</DependentUpon>
