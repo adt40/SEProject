@@ -50,16 +50,26 @@ namespace Minesweeper
             {
 
                 int counter = 0;
+                List<Tuple<int, String>> OrderedScores = new List<Tuple<int, String>>();
                 foreach (String name in game.map.scores.Keys)
                 {
-                    HighScoresList.Items.Add(game.map.scores[name] + "   " + name);
-                    HighScoresList.Sorted = true;
+                    OrderedScores.Add(Tuple.Create(game.map.scores[name], name));
+                }
+
+                OrderedScores.Sort();
+
+                foreach (Tuple<int, String> tuple in OrderedScores)
+                {
+                    HighScoresList.Items.Add(tuple.Item1 + "   " + tuple.Item2);
+
                     counter += 1;
                     if (counter >= 10)
                     {
                         break;
                     }
                 }
+                
+                
             }
 
         }

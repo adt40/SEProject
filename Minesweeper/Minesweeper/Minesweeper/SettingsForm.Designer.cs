@@ -50,7 +50,7 @@ namespace Minesweeper
             // 
             this.button1.Font = new System.Drawing.Font("Lucida Sans Unicode", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(125, 272);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 36);
             this.button1.TabIndex = 0;
@@ -62,7 +62,7 @@ namespace Minesweeper
             // 
             this.xScrollBar.LargeChange = 1;
             this.xScrollBar.Location = new System.Drawing.Point(57, 38);
-            this.xScrollBar.Maximum = 30;
+            this.xScrollBar.Maximum = 20;
             this.xScrollBar.Minimum = 5;
             this.xScrollBar.Name = "xScrollBar";
             this.xScrollBar.Size = new System.Drawing.Size(225, 15);
@@ -74,7 +74,7 @@ namespace Minesweeper
             // 
             this.yScrollBar.LargeChange = 1;
             this.yScrollBar.Location = new System.Drawing.Point(57, 70);
-            this.yScrollBar.Maximum = 30;
+            this.yScrollBar.Maximum = 20;
             this.yScrollBar.Minimum = 5;
             this.yScrollBar.Name = "yScrollBar";
             this.yScrollBar.Size = new System.Drawing.Size(225, 15);
@@ -127,7 +127,7 @@ namespace Minesweeper
             // xText
             // 
             this.xText.Location = new System.Drawing.Point(295, 38);
-            this.xText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.xText.Margin = new System.Windows.Forms.Padding(4);
             this.xText.Name = "xText";
             this.xText.Size = new System.Drawing.Size(47, 22);
             this.xText.TabIndex = 10;
@@ -136,7 +136,7 @@ namespace Minesweeper
             // yText
             // 
             this.yText.Location = new System.Drawing.Point(295, 70);
-            this.yText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.yText.Margin = new System.Windows.Forms.Padding(4);
             this.yText.Name = "yText";
             this.yText.Size = new System.Drawing.Size(47, 22);
             this.yText.TabIndex = 11;
@@ -145,7 +145,7 @@ namespace Minesweeper
             // bombsText
             // 
             this.bombsText.Location = new System.Drawing.Point(295, 102);
-            this.bombsText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bombsText.Margin = new System.Windows.Forms.Padding(4);
             this.bombsText.Name = "bombsText";
             this.bombsText.Size = new System.Drawing.Size(47, 22);
             this.bombsText.TabIndex = 12;
@@ -154,7 +154,7 @@ namespace Minesweeper
             // customText
             // 
             this.customText.Location = new System.Drawing.Point(17, 222);
-            this.customText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.customText.Margin = new System.Windows.Forms.Padding(4);
             this.customText.Name = "customText";
             this.customText.Size = new System.Drawing.Size(199, 22);
             this.customText.TabIndex = 13;
@@ -179,7 +179,7 @@ namespace Minesweeper
             // 
             this.button2.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(17, 186);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 15;
@@ -205,7 +205,7 @@ namespace Minesweeper
             this.Controls.Add(this.yScrollBar);
             this.Controls.Add(this.xScrollBar);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SettingsForm";
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.Form4_Load);

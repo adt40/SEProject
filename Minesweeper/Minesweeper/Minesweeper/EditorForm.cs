@@ -168,6 +168,7 @@ namespace Minesweeper
                     else
                     {
                         buttons[x, y].BackgroundImage = Properties.Resources.bomb;
+                        buttons[x, y].Text = "";
                         buttons[x, y].BackgroundImageLayout = ImageLayout.Stretch;
                     }
                 }

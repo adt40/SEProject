@@ -20,12 +20,13 @@ namespace Minesweeper
         public Button[,] buttons;
         public bool checkFile = true; //checks file for validity. We could use this boolean to return back to settings/load/whatever
         public int Time { get; set; }
+        public bool fromFile { get; set; }
 
         public GameForm(int x, int y, int bombs)
         {
             Time = 0;
-
-            //Test values, grab real values some other way
+            fromFile = false;
+            
             mapX = x;
             mapY = y;
             numBombs = bombs;
@@ -38,6 +39,7 @@ namespace Minesweeper
         public GameForm(String filename)
         {
             Time = 0;
+            fromFile = true;
 
             String filetype = filename.Substring(filename.Length - 3);
             map = new Map(filename);
@@ -52,8 +54,18 @@ namespace Minesweeper
         [ExcludeFromCodeCoverage]
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            GameForm game = new GameForm(mapX, mapY, numBombs);
-            game.Show();
+            GameForm game;
+            if (fromFile)
+            {
+                 game = new GameForm(map.MyName);
+                game.Show();
+            } else
+            {
+                game = new GameForm(mapX, mapY, numBombs);
+                game.Show();
+            }
+            
+            
             this.Hide();
         }
 
