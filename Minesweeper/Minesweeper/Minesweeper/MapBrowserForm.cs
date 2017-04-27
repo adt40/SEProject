@@ -108,8 +108,8 @@ namespace Minesweeper
         {
             return OnlineMapsList;
         }
-
-        private void UploadButton_Click(object sender, EventArgs e)
+        [ExcludeFromCodeCoverage] //Test method below
+        public void UploadButton_Click(object sender, EventArgs e)
         {
             TransferUtilityUploadRequest request = new TransferUtilityUploadRequest();
             request.BucketName = "eecs393minesweeper";
@@ -120,7 +120,36 @@ namespace Minesweeper
             PopulateOnlineList();
         }
 
-        private void DownloadButton_Click(object sender, EventArgs e)
+        public bool UploadTest()
+        {
+            
+            TransferUtilityUploadRequest request = new TransferUtilityUploadRequest();
+            request.BucketName = "eecs393minesweeper";
+            String filename = "testmap";
+            request.FilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper\\" + filename + ".map";
+            utility.Upload(request);
+            ReadOnlineFiles();
+            PopulateOnlineList();
+            GetObjectMetadataRequest req = new GetObjectMetadataRequest();
+            req.BucketName = "eecs393minesweeper";
+            String key = "test.map";
+            req.Key = key;
+            try
+            {
+                GetObjectMetadataResponse response = client.GetObjectMetadata(req.BucketName, req.Key);
+            }
+            catch(AmazonS3Exception e)
+            {
+                if (e.Message == "The specified key does not exist")
+                    return false;
+
+                throw;
+            }
+            return true;
+            
+        }
+        [ExcludeFromCodeCoverage] //test method below
+        public void DownloadButton_Click(object sender, EventArgs e)
         {
             TransferUtilityDownloadRequest request = new TransferUtilityDownloadRequest();
             request.BucketName = "eecs393minesweeper";
@@ -131,7 +160,19 @@ namespace Minesweeper
             ReadLocalFiles();
             PopulateLocalList();
         }
+        public bool testDownload()
+        {
+            TransferUtilityDownloadRequest request = new TransferUtilityDownloadRequest();
+            request.BucketName = "eecs393minesweeper";
+            String key = "test.map";
+            request.Key = key;
+            request.FilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper\\" + key;
+            utility.Download(request);
+            ReadLocalFiles();
+            PopulateLocalList();
+            return File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Minesweeper\\" + key);
 
+        }
         [ExcludeFromCodeCoverage]
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {

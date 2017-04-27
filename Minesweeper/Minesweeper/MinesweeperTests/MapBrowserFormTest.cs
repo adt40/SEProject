@@ -2,6 +2,7 @@
 using Minesweeper;
 using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Windows.Forms;
 
 namespace MinesweeperTests
 {
@@ -43,10 +44,28 @@ namespace MinesweeperTests
             browser.Hide();
             
         }
+        [TestMethod]
+        public void UploadButton_ClickTest()
+        {
 
+            MapBrowserForm browser = new MapBrowserForm();
+            browser.Show();
+            bool test = browser.UploadTest();
+            Assert.AreEqual(true, test);
+            
+        }
+        [TestMethod]
+        public void DownloadButton_ClickTest()
+        {
+            MapBrowserForm browser = new MapBrowserForm();
+            browser.Show();
+            bool test = browser.testDownload();
+            Assert.AreEqual(true, test);
+        }
         [TestMethod]
         public void PopulateOnlineListTest()
         {
+
             MapBrowserForm browser = new MapBrowserForm();
             browser.Show();
             Assert.IsTrue(0 < browser.getOnlineMapsList().Items.Count);
